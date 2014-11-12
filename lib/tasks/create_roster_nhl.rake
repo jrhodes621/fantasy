@@ -34,7 +34,6 @@ task :create_rosters_nhl => [:environment] do
   winger_combos = wingers.combination(3).to_a
   defencemen_combos = defencemen.combination(2).to_a
 
-  binding.pry
   products = CartesianProduct.new(center_combos, winger_combos, defencemen_combos, goalies, utils)
 
   p = Parallel.map(products, :in_threads=>20) do |p| 
@@ -102,6 +101,7 @@ task :create_rosters_nhl => [:environment] do
   end
 
   the_rosters = selected_rosters.sort_by { |r| r[:points] }.reverse.take(25)
-  binding.pry
+
+  puts the_rosters
   
 end
