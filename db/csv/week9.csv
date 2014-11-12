@@ -1,0 +1,455 @@
+ID,Player Name,Position,Team,Salary,DK-Avg-Pts,FantasyProsProj,,,,,Name,Position,Salary,GameInfo,AvgPointsPerGame
+1,A.J. Green,WR,CIN,6300,16.475,13.9,,,,,49ers,DST,3200,StL@SF 04:05PM ET,6.714
+2,A.J. Jenkins,WR,KC,3000,1.771,1.4,,,,,A.J. Green,WR,6300,Jax@Cin 01:00PM ET,16.475
+3,Aaron Dobson,WR,NE,3000,2.267,0,,,,,A.J. Jenkins,WR,3000,NYJ@KC 01:00PM ET,1.771
+4,Aaron Murray,QB,KC,5000,0,0,,,,,Aaron Dobson,WR,3000,Den@NE 04:25PM ET,2.267
+5,Ace Sanders,WR,JAC,3000,1.05,0.6,,,,,Aaron Murray,QB,5000,NYJ@KC 01:00PM ET,0
+6,Adam Thielen,WR,MIN,3000,1.213,0.3,,,,,Ace Sanders,WR,3000,Jax@Cin 01:00PM ET,1.05
+7,Adrian Peterson,RB,MIN,3000,1.213,0,,,,,Adam Thielen,WR,3000,Was@Min 01:00PM ET,1.213
+8,Adrien Robinson,TE,NYG,3000,1.129,0.1,,,,,Adrien Robinson,TE,3000,Ind@NYG 08:30PM ET,1.129
+9,Ahmad Bradshaw,RB,IND,5800,17.563,13.2,,,,,Ahmad Bradshaw,RB,5800,Ind@NYG 08:30PM ET,17.563
+10,AJ McCarron,QB,CIN,5800,17.563,0,,,,,Albert Wilson,WR,3000,NYJ@KC 01:00PM ET,0.7
+11,Albert Wilson,WR,KC,3000,0.7,0,,,,,Aldrick Robinson,WR,3000,Was@Min 01:00PM ET,0.32
+12,Aldrick Robinson,WR,WAS,3000,0.32,0.1,,,,,Alex Bayer,TE,3000,StL@SF 04:05PM ET,0
+13,Alex Smith,QB,KC,5700,15.149,15.8,,,,,Alex Smith,QB,5700,NYJ@KC 01:00PM ET,15.149
+14,Alex Smith,TE,CIN,5700,15.149,0,,,,,Alfred Blue,RB,3000,Phi@Hou 01:00PM ET,4.875
+15,Alfred Blue,RB,HOU,3000,4.875,3.6,,,,,Alfred Morris,RB,3900,Was@Min 01:00PM ET,10.8
+16,Alfred Morris,RB,WAS,3900,10.8,11.9,,,,,Allen Hurns,WR,3000,Jax@Cin 01:00PM ET,9.8
+17,Allen Hurns,WR,JAC,3000,9.8,3.2,,,,,Allen Robinson,WR,4900,Jax@Cin 01:00PM ET,12.038
+18,Allen Robinson,WR,JAC,4900,12.038,8.9,,,,,Andre Caldwell,WR,3000,Den@NE 04:25PM ET,0.514
+19,Andre Caldwell,WR,DEN,3000,0.514,0.3,,,,,Andre Ellington,RB,5900,Ari@Dal 01:00PM ET,17.257
+20,Andre Ellington,RB,ARI,5900,17.257,13.7,,,,,Andre Holmes,WR,4800,Oak@Sea 04:25PM ET,12.457
+21,Andre Holmes,WR,OAK,4800,12.457,6.6,,,,,Andre Johnson,WR,5500,Phi@Hou 01:00PM ET,13.138
+22,Andre Johnson,WR,HOU,5500,13.138,10.5,,,,,Andre Roberts,WR,3300,Was@Min 01:00PM ET,7.613
+23,Andre Roberts,WR,WAS,3300,7.613,3.4,,,,,Andre Williams,RB,3500,Ind@NYG 08:30PM ET,6.643
+24,Andre Williams,RB,NYG,3500,6.643,8.1,,,,,Andrew DePaola,TE,3000,TB@Cle 01:00PM ET,0
+25,Andrew Hawkins,WR,CLE,4900,13.257,9,,,,,Andrew Hawkins,WR,4900,TB@Cle 01:00PM ET,13.257
+26,Andrew Luck,QB,IND,10000,28.955,22.9,,,,,Andrew Luck,QB,10000,Ind@NYG 08:30PM ET,28.955
+27,Andy Dalton,QB,CIN,6300,17.163,17.2,,,,,Andy Dalton,QB,6300,Jax@Cin 01:00PM ET,17.163
+28,Anquan Boldin,WR,SF,5000,12.814,10.5,,,,,Anquan Boldin,WR,5000,StL@SF 04:05PM ET,12.814
+29,Anthony Fasano,TE,KC,3000,5.171,2.5,,,,,Anthony Fasano,TE,3000,NYJ@KC 01:00PM ET,5.171
+30,Anthony McCoy,TE,SEA,3000,5.171,0,,,,,Anthony Sherman,RB,3000,NYJ@KC 01:00PM ET,2.386
+31,Anthony Sherman,RB,KC,3000,2.386,0.9,,,,,Antonio Brown,WR,9100,Bal@Pit 08:30PM ET,25.663
+32,Antonio Brown,WR,PIT,9100,25.663,15.8,,,,,Antonio Gates,TE,5300,SD@Mia 01:00PM ET,15.963
+33,Antonio Gates,TE,SD,5300,15.963,11.8,,,,,Arian Foster,RB,9900,Phi@Hou 01:00PM ET,26.743
+34,Arian Foster,RB,HOU,9900,26.743,18.5,,,,,Austin Davis,QB,5500,StL@SF 04:05PM ET,15.557
+35,Arrelious Benn,WR,PHI,9900,26.743,0,,,,,Austin Johnson,RB,3000,NO@Car 08:25PM ET,1.671
+36,Austin Davis,QB,STL,5500,15.557,13,,,,,Austin Seferian-Jenkins,TE,3400,TB@Cle 01:00PM ET,6.7
+37,Austin Johnson,RB,NO,3000,1.671,1.1,,,,,Ben Roethlisberger,QB,7500,Bal@Pit 08:30PM ET,20.45
+38,Austin Seferian-Jenkins,TE,TB,3400,6.7,4.4,,,,,Ben Tate,RB,4300,TB@Cle 01:00PM ET,10.98
+39,Ben Hartsock,TE,FA,3400,6.7,0,,,,,Bengals,DST,3300,Jax@Cin 01:00PM ET,5.429
+40,Ben Roethlisberger,QB,PIT,7500,20.45,18.9,,,,,Benjamin Watson,TE,3000,NO@Car 08:25PM ET,2.386
+41,Ben Tate,RB,CLE,4300,10.98,12.7,,,,,Benny Cunningham,RB,3000,StL@SF 04:05PM ET,9.171
+42,Benjamin Watson,TE,NO,3000,2.386,0.5,,,,,Bernard Pierce,RB,3000,Bal@Pit 08:30PM ET,6.46
+43,Benny Cunningham,RB,STL,3000,9.171,3.8,,,,,Bilal Powell,RB,3000,NYJ@KC 01:00PM ET,2.975
+44,Bernard Pierce,RB,BAL,3000,6.46,0.7,,,,,Blaine Gabbert,QB,5000,StL@SF 04:05PM ET,6.02
+45,Bilal Powell,RB,NYJ,3000,2.975,1.3,,,,,Blake Bortles,QB,5400,Jax@Cin 01:00PM ET,14.743
+46,Billy Bajema,TE,FA,3000,2.975,0,,,,,Bobby Rainey,RB,4400,TB@Cle 01:00PM ET,11.529
+47,Blaine Gabbert,QB,SF,5000,6.02,0,,,,,Brad Smith,WR,3000,Phi@Hou 01:00PM ET,0.42
+48,Blake Bortles,QB,JAC,5400,14.743,13.8,,,,,Branden Oliver,RB,5700,SD@Mia 01:00PM ET,16.067
+49,Bobby Rainey,RB,TB,4400,11.529,7.1,,,,,Brandin Cooks,WR,4100,NO@Car 08:25PM ET,14.571
+50,Brad Smith,WR,PHI,3000,0.42,0,,,,,Brandon Bolden,RB,3000,Den@NE 04:25PM ET,0.663
+51,Brady Quinn,QB,FA,3000,0.42,0,,,,,Brandon Gibson,WR,3000,SD@Mia 01:00PM ET,3.04
+52,Branden Oliver,RB,SD,5700,16.067,11.4,,,,,Brandon LaFell,WR,6000,Den@NE 04:25PM ET,13.263
+53,Brandin Cooks,WR,NO,4100,14.571,10.2,,,,,Brandon Lloyd,WR,3000,StL@SF 04:05PM ET,6.867
+54,Brandon Barden,TE,KC,4100,14.571,0,,,,,Brandon Myers,TE,3000,TB@Cle 01:00PM ET,4.271
+55,Brandon Bolden,RB,NE,3000,0.663,0.6,,,,,Brandon Tate,WR,3000,Jax@Cin 01:00PM ET,5
+56,Brandon Gibson,WR,MIA,3000,3.04,0.7,,,,,Brandon Weeden,QB,5000,Ari@Dal 01:00PM ET,3.13
+57,Brandon Jacobs,RB,FA,3000,3.04,0,,,,,Brandon Williams,TE,3000,NO@Car 08:25PM ET,1.133
+58,Brandon LaFell,WR,NE,6000,13.263,11.3,,,,,Brent Celek,TE,3000,Phi@Hou 01:00PM ET,2.9
+59,Brandon Lloyd,WR,SF,3000,6.867,2.8,,,,,Brenton Bersin,WR,3000,NO@Car 08:25PM ET,3.629
+60,Brandon Myers,TE,TB,3000,4.271,1,,,,,Brett Brackett,TE,3000,Oak@Sea 04:25PM ET,0
+61,Brandon Stokley,WR,BAL,3000,4.271,0,,,,,Brian Hartline,WR,3000,SD@Mia 01:00PM ET,6.786
+62,Brandon Tate,WR,CIN,3000,5,2.5,,,,,Brian Hoyer,QB,5300,TB@Cle 01:00PM ET,13.909
+63,Brandon Weeden,QB,DAL,5000,3.13,0,,,,,Brian Leonhardt,TE,3000,Oak@Sea 04:25PM ET,1.8
+64,Brandon Williams,TE,ARI,3000,1.133,0,,,,,Brian Quick,WR,3600,StL@SF 04:05PM ET,11.5
+65,Brent Celek,TE,PHI,3000,2.9,1.8,,,,,Brian Tyms,WR,3000,Den@NE 04:25PM ET,3.767
+66,Brenton Bersin,WR,CAR,3000,3.629,1,,,,,Brice Butler,WR,3000,Oak@Sea 04:25PM ET,4.933
+67,Brian Hartline,WR,MIA,3000,6.786,3.6,,,,,Brock Osweiler,QB,5000,Den@NE 04:25PM ET,0
+68,Brian Hoyer,QB,CLE,5300,13.909,15.8,,,,,Broncos,DST,2900,Den@NE 04:25PM ET,7.571
+69,Brian Leonhardt,TE,OAK,3000,1.8,0.3,,,,,Browns,DST,2900,TB@Cle 01:00PM ET,7.571
+70,Brian Tyms,WR,NE,3000,3.767,0.5,,,,,Bruce Ellington,WR,3000,StL@SF 04:05PM ET,2.3
+71,Brice Butler,WR,OAK,3000,4.933,2.4,,,,,Bruce Gradkowski,QB,5000,Bal@Pit 08:30PM ET,-0.2
+72,Brock Osweiler,QB,DEN,5000,0,0,,,,,Bruce Miller,RB,3000,StL@SF 04:05PM ET,0.671
+73,Bruce Ellington,WR,SF,3000,2.3,1,,,,,Bryan Walters,WR,3000,Oak@Sea 04:25PM ET,1.533
+74,Bruce Gradkowski,QB,PIT,5000,-0.2,0,,,,,Buccaneers,DST,2800,TB@Cle 01:00PM ET,5.429
+75,Bruce Miller,RB,SF,3000,0.671,0.2,,,,,C.J. Anderson,RB,3000,Den@NE 04:25PM ET,1.25
+76,Bryan Walters,WR,SEA,3000,1.533,0.8,,,,,C.J. Fiedorowicz,TE,3000,Phi@Hou 01:00PM ET,0.514
+77,C.J. Anderson,RB,DEN,3000,1.25,0.3,,,,,Cam Newton,QB,8000,NO@Car 08:25PM ET,17.589
+78,C.J. Fiedorowicz,TE,HOU,3000,0.514,0.6,,,,,Cardinals,DST,3000,Ari@Dal 01:00PM ET,7.714
+79,Cam Newton,QB,CAR,8000,17.589,17.9,,,,,Carlos Hyde,RB,3000,StL@SF 04:05PM ET,5.043
+80,Carlos Hyde,RB,SF,3000,5.043,7.6,,,,,Carson Palmer,QB,6800,Ari@Dal 01:00PM ET,21.01
+81,Carson Palmer,QB,ARI,6800,21.01,16.1,,,,,Case Keenum,QB,5000,StL@SF 04:05PM ET,0
+82,Case Keenum,QB,STL,5000,0,0,,,,,Cecil Shorts III,WR,4100,Jax@Cin 01:00PM ET,10.52
+83,Cecil Shorts,WR,JAC,5000,0,6.2,,,,,Cedric Peerman,RB,3000,Jax@Cin 01:00PM ET,0.429
+84,Cedric Peerman,RB,CIN,3000,0.429,0.1,,,,,Chad Henne,QB,5000,Jax@Cin 01:00PM ET,10.727
+85,Chad Henne,QB,JAC,5000,10.727,0,,,,,Chargers,DST,2900,SD@Mia 01:00PM ET,6
+86,Charles Clay,TE,MIA,3000,6.929,3.6,,,,,Charles Clay,TE,3000,SD@Mia 01:00PM ET,6.929
+87,Charles Johnson,WR,MIN,3000,3.233,1.4,,,,,Charles Johnson,WR,3000,Was@Min 01:00PM ET,3.233
+88,Charles Sims,RB,TB,3000,3.233,4,,,,,Chase Daniel,QB,5000,NYJ@KC 01:00PM ET,0
+89,Chase Daniel,QB,KC,5000,0,0,,,,,Chase Ford,TE,3800,Was@Min 01:00PM ET,5.72
+90,Chase Ford,TE,MIN,3800,5.72,3,,,,,Chase Reynolds,RB,3000,StL@SF 04:05PM ET,0
+91,Chase Reynolds,RB,STL,3000,0,0,,,,,Chiefs,DST,3300,NYJ@KC 01:00PM ET,8
+92,Chris Givens,WR,STL,3000,3.12,2.3,,,,,Chris Givens,WR,3000,StL@SF 04:05PM ET,3.12
+93,Chris Johnson,RB,NYJ,3200,7.375,3.3,,,,,Chris Ivory,RB,4500,NYJ@KC 01:00PM ET,13.225
+94,Chris Ogbonnaya,RB,CAR,3000,2.75,1.2,,,,,Chris Johnson,RB,3200,NYJ@KC 01:00PM ET,7.375
+95,Chris Owusu,WR,NYJ,3000,2.925,0.3,,,,,Chris Ogbonnaya,RB,3000,NO@Car 08:25PM ET,2.75
+96,Chris Polk,RB,PHI,3000,1.68,2,,,,,Chris Owusu,WR,3000,NYJ@KC 01:00PM ET,2.925
+97,Christian Ponder,QB,MIN,5000,7.24,0,,,,,Chris Polk,RB,3000,Phi@Hou 01:00PM ET,1.68
+98,Christine Michael,RB,SEA,3000,0.85,3.9,,,,,Christian Ponder,QB,5000,Was@Min 01:00PM ET,7.24
+99,Christopher Ivory,RB,NYJ,3000,0.85,9.6,,,,,Christine Michael,RB,3000,Oak@Sea 04:25PM ET,0.85
+100,Clay Harbor,TE,JAC,4200,10.48,5,,,,,Clark Harris,TE,3000,Jax@Cin 01:00PM ET,0
+101,Coby Fleener,TE,IND,3100,7.225,4.8,,,,,Clay Harbor,TE,4200,Jax@Cin 01:00PM ET,10.48
+102,Cody Latimer,WR,DEN,3000,0,0,,,,,Coby Fleener,TE,3100,Ind@NYG 08:30PM ET,7.225
+103,Cole Beasley,WR,DAL,3000,3.25,2.1,,,,,Cody Latimer,WR,3000,Den@NE 04:25PM ET,0
+104,Colin Kaepernick,QB,SF,7000,19.394,20.5,,,,,Cole Beasley,WR,3000,Ari@Dal 01:00PM ET,3.25
+105,Colt McCoy,QB,WAS,6100,13.99,14.5,,,,,Colin Kaepernick,QB,7000,StL@SF 04:05PM ET,19.394
+106,Cooper Helfet,TE,SEA,3000,4.7,0.8,,,,,Colt McCoy,QB,6100,Was@Min 01:00PM ET,13.99
+107,Cordarrelle Patterson,WR,MIN,4800,10.113,9.3,,,,,Colts,DST,3200,Ind@NYG 08:30PM ET,8.375
+108,Corey Washington,WR,NYG,3000,0,0.1,,,,,Cooper Helfet,TE,3000,Oak@Sea 04:25PM ET,4.7
+109,Cory Harkey,RB,STL,3000,0.871,0.3,,,,,Cordarrelle Patterson,WR,4800,Was@Min 01:00PM ET,10.113
+110,Cory Harkey,TE,STL,3000,0.871,-1,,,,,Corey Washington,WR,3000,Ind@NYG 08:30PM ET,0
+111,Crockett Gillmore,TE,BAL,3000,1.275,3.5,,,,,Cory Harkey,TE,3000,StL@SF 04:05PM ET,0.871
+112,Cyrus Gray,RB,KC,3000,1.3,0,,,,,Cowboys,DST,2900,Ari@Dal 01:00PM ET,6.125
+113,D.C. Jefferson,TE,CAR,3000,1.3,0,,,,,Crockett Gillmore,TE,3000,Bal@Pit 08:30PM ET,1.275
+114,Dallas Clark,TE,FA,3000,1.3,0,,,,,Cyrus Gray,RB,3000,NYJ@KC 01:00PM ET,1.3
+115,Damaris Johnson,WR,HOU,3000,4.488,2.9,,,,,Damaris Johnson,WR,3000,Phi@Hou 01:00PM ET,4.488
+116,Damien Williams,RB,MIA,3000,1,-0.3,,,,,Damien Williams,RB,3000,SD@Mia 01:00PM ET,1
+117,Dan Herron,RB,IND,3000,1,0.6,,,,,Dane Sanzenbacher,WR,3000,Jax@Cin 01:00PM ET,2.1
+118,Dane Sanzenbacher,WR,CIN,3000,2.1,1,,,,,Daniel Fells,TE,3000,Ind@NYG 08:30PM ET,6.071
+119,Daniel Fells,TE,NYG,3000,6.071,1.8,,,,,Daniel Herron,RB,3000,Ind@NYG 08:30PM ET,0.988
+120,Daniel Thomas,RB,MIA,3000,6.15,3.6,,,,,Daniel Thomas,RB,3000,SD@Mia 01:00PM ET,6.15
+121,Danny Amendola,WR,NE,3000,2.213,1.4,,,,,Danny Amendola,WR,3000,Den@NE 04:25PM ET,2.213
+122,Da'Rick Rogers,WR,IND,3000,1.3,0,,,,,Darrel Young,RB,3000,Was@Min 01:00PM ET,4.125
+123,Darrel Young,RB,WAS,3000,4.125,0.7,,,,,Darren Fells,TE,3000,Ari@Dal 01:00PM ET,0
+124,Darren Fells,TE,ARI,3000,0,0,,,,,Darren McFadden,RB,4800,Oak@Sea 04:25PM ET,11.029
+125,Darren McFadden,RB,OAK,4800,11.029,6.8,,,,,Darren Sproles,RB,4100,Phi@Hou 01:00PM ET,13.817
+126,Darren Sproles,RB,PHI,4100,13.817,3.2,,,,,Darrin Reaves,RB,3000,NO@Car 08:25PM ET,2.633
+127,Darrin Reaves,RB,CAR,3000,2.633,-0.4,,,,,Darrius Heyward-Bey,WR,3000,Bal@Pit 08:30PM ET,0.663
+128,Darrius Heyward-Bey,WR,PIT,3000,0.663,0.6,,,,,David Ausberry,TE,3000,Oak@Sea 04:25PM ET,0.567
+129,David Ausberry,TE,OAK,3000,0.567,0.1,,,,,David Johnson,TE,3000,SD@Mia 01:00PM ET,0
+130,David Garrard,QB,NYJ,3000,0.567,0,,,,,DeAndre Hopkins,WR,5400,Phi@Hou 01:00PM ET,14.488
+131,David Johnson,TE,SD,3000,0,0,,,,,DeAngelo Williams,RB,3300,NO@Car 08:25PM ET,5.3
+132,DeAndre Hopkins,WR,HOU,5400,14.488,11.7,,,,,De'Anthony Thomas,RB,3000,NYJ@KC 01:00PM ET,5.567
+133,DeAngelo Williams,RB,CAR,3000,5.567,7.3,,,,,DeMarco Murray,RB,9000,Ari@Dal 01:00PM ET,27.038
+134,De'Anthony Thomas,RB,KC,3000,0,2.1,,,,,Demaryius Thomas,WR,9000,Den@NE 04:25PM ET,24.814
+135,DeMarco Murray,RB,DAL,9000,27.038,17.8,,,,,Demetrius Harris,TE,3000,NYJ@KC 01:00PM ET,0.486
+136,Demaryius Thomas,WR,DEN,9000,24.814,16.3,,,,,Denard Robinson,RB,4800,Jax@Cin 01:00PM ET,7.7
+137,Demetrius Harris,TE,KC,3000,0.486,0.1,,,,,Denarius Moore,WR,3000,Oak@Sea 04:25PM ET,3.283
+138,Denard Robinson,RB,JAC,4800,7.7,10.7,,,,,Derek Anderson,QB,5000,NO@Car 08:25PM ET,8.49
+139,Denarius Moore,WR,OAK,3000,3.283,1,,,,,Derek Carr,QB,5300,Oak@Sea 04:25PM ET,14.34
+140,Derek Anderson,QB,CAR,5000,8.49,0,,,,,Derek Carrier,TE,3000,StL@SF 04:05PM ET,2.586
+141,Derek Carr,QB,OAK,5300,14.34,10.5,,,,,DeSean Jackson,WR,6000,Was@Min 01:00PM ET,16
+142,Derek Carrier,TE,SF,3000,2.586,0.3,,,,,DeVier Posey,WR,3000,Phi@Hou 01:00PM ET,0
+143,Derrick Coleman,RB,SEA,3000,2.586,0,,,,,Devin Street,WR,3000,Ari@Dal 01:00PM ET,0.475
+144,DeSean Jackson,WR,WAS,6000,16,12.1,,,,,Dez Bryant,WR,8200,Ari@Dal 01:00PM ET,18.25
+145,DeVier Posey,WR,HOU,3000,0,0,,,,,Dion Sims,TE,3000,SD@Mia 01:00PM ET,3.514
+146,Devin Street,WR,DAL,3000,0.475,0.3,,,,,Dolphins,DST,3100,SD@Mia 01:00PM ET,11.429
+147,Dez Bryant,WR,DAL,8200,18.25,15.6,,,,,Donald Brown,RB,3000,SD@Mia 01:00PM ET,6.64
+148,Dion Sims,TE,MIA,3000,3.514,1.1,,,,,Donnie Avery,WR,3000,NYJ@KC 01:00PM ET,7.4
+149,Donald Brown,RB,SD,3000,6.64,0,,,,,Donte Moncrief,WR,5300,Ind@NYG 08:30PM ET,5.913
+150,Donnie Avery,WR,KC,3000,7.4,0,,,,,Dontrelle Inman,WR,3000,SD@Mia 01:00PM ET,0
+151,Donte Moncrief,WR,IND,5300,5.913,6.7,,,,,Doug Baldwin,WR,5100,Oak@Sea 04:25PM ET,10.729
+152,Dontrelle Inman,WR,SD,3000,0,0,,,,,Doug Martin,RB,3900,TB@Cle 01:00PM ET,7.4
+153,Doug Baldwin,WR,SEA,5100,10.729,10.5,,,,,Drew Brees,QB,8300,NO@Car 08:25PM ET,22.254
+154,Doug Martin,RB,TB,3900,7.4,2.5,,,,,Drew Stanton,QB,5000,Ari@Dal 01:00PM ET,10.187
+155,Drew Brees,QB,NO,8300,22.254,19.7,,,,,Dri Archer,WR,3000,Bal@Pit 08:30PM ET,1.433
+156,Drew Stanton,QB,ARI,5000,10.187,0,,,,,Dustin Vaughan,QB,5000,Ari@Dal 01:00PM ET,0
+157,Dri Archer,RB,PIT,3000,1.433,1,,,,,Dwayne Allen,TE,4100,Ind@NYG 08:30PM ET,11.325
+158,Dwayne Allen,TE,IND,4100,11.325,9.3,,,,,Dwayne Bowe,WR,4500,NYJ@KC 01:00PM ET,9.883
+159,Dwayne Bowe,WR,KC,4500,9.883,7.6,,,,,Dwayne Harris,WR,3000,Ari@Dal 01:00PM ET,1.9
+160,Dwayne Harris,WR,DAL,3000,1.9,0.5,,,,,Eagles,DST,3400,Phi@Hou 01:00PM ET,13.714
+161,Ed Dickson,TE,CAR,3000,0.738,0.5,,,,,Ed Dickson,TE,3000,NO@Car 08:25PM ET,0.738
+162,Eddie Royal,WR,SD,3800,12.038,4.2,,,,,Eddie Royal,WR,3800,SD@Mia 01:00PM ET,12.038
+163,Eli Manning,QB,NYG,7300,17.789,15.5,,,,,Edwin Baker,RB,3000,NO@Car 08:25PM ET,0
+164,Emmanuel Sanders,WR,DEN,8000,21.243,13.6,,,,,Eli Manning,QB,7300,Ind@NYG 08:30PM ET,17.789
+165,Eric Decker,WR,NYJ,4700,12.186,8.1,,,,,Emmanuel Sanders,WR,8000,Den@NE 04:25PM ET,21.243
+166,Erik Lorig,RB,NO,3000,0.8,0.4,,,,,Eric Decker,WR,4700,NYJ@KC 01:00PM ET,12.186
+167,Fozzy Whittaker,RB,CAR,3000,4.4,0.6,,,,,Erik Lorig,RB,3000,NO@Car 08:25PM ET,0.8
+168,Frank Gore,RB,SF,3800,10.157,12.8,,,,,Fozzy Whittaker,RB,3000,NO@Car 08:25PM ET,4.4
+169,Frankie Hammond,WR,KC,3800,10.157,0.7,,,,,Frank Gore,RB,3800,StL@SF 04:05PM ET,10.157
+170,Garrett Celek,TE,SF,3000,0.729,0,,,,,Frankie Hammond Jr.,WR,3000,NYJ@KC 01:00PM ET,0.729
+171,Garrett Graham,TE,HOU,3000,3.457,1.6,,,,,Garrett Graham,TE,3000,Phi@Hou 01:00PM ET,3.457
+172,Gary Barnidge,TE,CLE,3000,1.486,0.8,,,,,Gary Barnidge,TE,3000,TB@Cle 01:00PM ET,1.486
+173,Gator Hoskins,TE,MIA,3000,1.486,0,,,,,Gavin Escobar,TE,3400,Ari@Dal 01:00PM ET,4.188
+174,Gavin Escobar,TE,DAL,3400,4.188,3.1,,,,,Geno Smith,QB,5100,NYJ@KC 01:00PM ET,11.713
+175,Geno Smith,QB,NYJ,5100,11.713,3.8,,,,,Giants,DST,2600,Ind@NYG 08:30PM ET,5.571
+176,Giovani Bernard,RB,CIN,6600,16.786,14.5,,,,,Giovani Bernard,RB,6600,Jax@Cin 01:00PM ET,16.786
+177,Greg Jenkins,WR,OAK,3000,0,0,,,,,Glenn Winston,RB,3000,TB@Cle 01:00PM ET,0
+178,Greg Jennings,WR,MIN,3800,9.913,6,,,,,Greg Jennings,WR,3800,Was@Min 01:00PM ET,9.913
+179,Greg Jones,RB,NO,3800,9.913,0,,,,,Greg Little,WR,3100,Jax@Cin 01:00PM ET,4.75
+180,Greg Little,WR,CIN,3100,4.75,1.6,,,,,Greg Olsen,TE,6000,NO@Car 08:25PM ET,15.738
+181,Greg Olsen,TE,CAR,6000,15.738,10.2,,,,,Greg Salas,WR,3000,NYJ@KC 01:00PM ET,4.117
+182,Greg Salas,WR,NYJ,3000,4.117,0,,,,,Griff Whalen,WR,3000,Ind@NYG 08:30PM ET,0.413
+183,Griff Whalen,WR,IND,3000,0.413,0,,,,,Hakeem Nicks,WR,3000,Ind@NYG 08:30PM ET,5.85
+184,Hakeem Nicks,WR,IND,3000,5.85,3.9,,,,,Harold Hoskins,TE,3000,SD@Mia 01:00PM ET,0.425
+185,Heath Miller,TE,PIT,4300,10.838,5.5,,,,,Heath Miller,TE,4300,Bal@Pit 08:30PM ET,10.838
+186,Henry Hynoski,RB,NYG,3000,0.014,0,,,,,Henry Hynoski,RB,3000,Ind@NYG 08:30PM ET,0.014
+187,Isaiah Burse,WR,DEN,3000,0,0,,,,,Isaiah Burse,WR,3000,Den@NE 04:25PM ET,0
+188,Isaiah Crowell,RB,CLE,3000,7.6,3.5,,,,,Isaiah Crowell,RB,3000,TB@Cle 01:00PM ET,7.6
+189,Jace Amaro,TE,NYJ,4100,8.313,4.8,,,,,Jace Amaro,TE,4100,NYJ@KC 01:00PM ET,8.313
+190,Jack Doyle,TE,IND,3000,2.6,0.8,,,,,Jack Doyle,TE,3000,Ind@NYG 08:30PM ET,2.6
+191,Jacob Tamme,TE,DEN,3000,3.1,1.1,,,,,Jacob Tamme,TE,3000,Den@NE 04:25PM ET,3.1
+192,Jacoby Jones,WR,BAL,3000,0.9,-0.2,,,,,Jacoby Jones,WR,3000,Bal@Pit 08:30PM ET,0.9
+193,Jamaal Charles,RB,KC,7100,16.2,17.4,,,,,Jaguars,DST,2700,Jax@Cin 01:00PM ET,5.5
+194,James Casey,TE,PHI,3000,1.786,0.1,,,,,Jamaal Charles,RB,7100,NYJ@KC 01:00PM ET,16.2
+195,James Develin,RB,NE,3000,0.938,-0.4,,,,,James Casey,TE,3000,Phi@Hou 01:00PM ET,1.786
+196,James Hanna,TE,DAL,3000,0.213,0.7,,,,,James Develin,RB,3000,Den@NE 04:25PM ET,0.938
+197,James Jones,WR,OAK,4500,14.071,8.2,,,,,James Hanna,TE,3000,Ari@Dal 01:00PM ET,0.213
+198,James White,RB,NE,3000,4.15,0.3,,,,,James Jones,WR,4500,Oak@Sea 04:25PM ET,14.071
+199,James Wright,WR,CIN,3000,0.567,0.4,,,,,James White,RB,3000,Den@NE 04:25PM ET,4.15
+200,Jamize Olawale,RB,OAK,3000,0.657,0.2,,,,,James Wright,WR,3000,Jax@Cin 01:00PM ET,0.567
+201,Jared Cook,TE,STL,3000,8.586,6.5,,,,,Jamize Olawale,RB,3000,Oak@Sea 04:25PM ET,0.657
+202,Jarius Wright,WR,MIN,3100,7.15,4.1,,,,,Jared Cook,TE,3000,StL@SF 04:05PM ET,8.586
+203,Jaron Brown,WR,ARI,3000,0.743,0.7,,,,,Jarius Wright,WR,3100,Was@Min 01:00PM ET,7.15
+204,Jarvis Landry,WR,MIA,3400,7.843,5.9,,,,,Jaron Brown,WR,3000,Ari@Dal 01:00PM ET,0.743
+205,Jason Avant,WR,CAR,3000,5.45,2.8,,,,,Jarvis Landry,WR,3400,SD@Mia 01:00PM ET,7.843
+206,Jason Campbell,QB,CIN,5000,0.84,0,,,,,Jason Avant,WR,3000,NO@Car 08:25PM ET,5.45
+207,Jason Witten,TE,DAL,3200,9.2,6.1,,,,,Jason Campbell,QB,5000,Jax@Cin 01:00PM ET,0.84
+208,Jay Prosch,RB,HOU,3000,0.425,0.1,,,,,Jason Witten,TE,3200,Ari@Dal 01:00PM ET,9.2
+209,Jeff Cumberland,TE,NYJ,3000,4.55,2,,,,,Jay Prosch,RB,3000,Phi@Hou 01:00PM ET,0.425
+210,Jeff Maehl,WR,PHI,3000,1.05,0,,,,,Jeff Cumberland,TE,3000,NYJ@KC 01:00PM ET,4.55
+211,Jeremy Butler,WR,BAL,3000,1.05,0,,,,,Jeff Maehl,WR,3000,Phi@Hou 01:00PM ET,1.05
+212,Jeremy Hill,RB,CIN,4000,9.086,7.7,,,,,Jeremy Hill,RB,4000,Jax@Cin 01:00PM ET,9.086
+213,Jeremy Kerley,WR,NYJ,3000,7.038,2.9,,,,,Jeremy Kerley,WR,3000,NYJ@KC 01:00PM ET,7.038
+214,Jeremy Maclin,WR,PHI,7600,20.6,14.8,,,,,Jeremy Maclin,WR,7600,Phi@Hou 01:00PM ET,20.6
+215,Jerick McKinnon,RB,MIN,4700,8.925,12.8,,,,,Jerick McKinnon,RB,4700,Was@Min 01:00PM ET,8.925
+216,Jermaine Gresham,TE,CIN,3000,7.014,3,,,,,Jermaine Gresham,TE,3000,Jax@Cin 01:00PM ET,7.014
+217,Jermaine Kearse,WR,SEA,3100,6.569,4.5,,,,,Jermaine Kearse,WR,3100,Oak@Sea 04:25PM ET,6.569
+218,Jerome Felton,RB,MIN,3000,0.263,-0.4,,,,,Jerome Felton,RB,3000,Was@Min 01:00PM ET,0.263
+219,Jerricho Cotchery,WR,CAR,3800,8.514,4.6,,,,,Jerricho Cotchery,WR,3800,NO@Car 08:25PM ET,8.514
+220,Jim Dray,TE,CLE,3000,3.829,2.7,,,,,Jets,DST,2800,NYJ@KC 01:00PM ET,3.125
+221,Jimmy Garoppolo,QB,NE,5000,2.393,0,,,,,Jim Dray,TE,3000,TB@Cle 01:00PM ET,3.829
+222,Jimmy Graham,TE,NO,6700,15.5,13,,,,,Jimmy Garoppolo,QB,5000,Den@NE 04:25PM ET,2.393
+223,Joe Banyard,RB,MIN,3000,0.443,0,,,,,Jimmy Graham,TE,6700,NO@Car 08:25PM ET,15.5
+224,Joe Flacco,QB,BAL,6100,17.933,15.3,,,,,Joe Banyard,RB,3000,Was@Min 01:00PM ET,0.443
+225,Joe Webb,QB,CAR,5000,0,0,,,,,Joe Flacco,QB,6100,Bal@Pit 08:30PM ET,17.933
+226,Joel Dreessen,TE,DEN,5000,0,0,,,,,Joe Webb,QB,5000,NO@Car 08:25PM ET,0
+227,John Brown,WR,ARI,3800,11.471,6.8,,,,,John Brown,WR,3800,Ari@Dal 01:00PM ET,11.471
+228,John Carlson,TE,ARI,3000,4.643,3.1,,,,,John Carlson,TE,3000,Ari@Dal 01:00PM ET,4.643
+229,John Conner,RB,NYJ,3000,0,0.1,,,,,John Conner,RB,3000,NYJ@KC 01:00PM ET,0
+230,John Phillips,TE,SD,3000,0.888,0.1,,,,,John Phillips,TE,3000,SD@Mia 01:00PM ET,0.888
+231,Johnny Manziel,QB,CLE,5000,0,0,,,,,Johnny Manziel,QB,5000,TB@Cle 01:00PM ET,0
+232,Jon Kitna,QB,DAL,5000,0,0,,,,,Jonas Gray,RB,3400,Den@NE 04:25PM ET,4.9
+233,Jonas Gray,RB,NE,3400,4.9,4.5,,,,,Jonathan Grimes,RB,3000,Phi@Hou 01:00PM ET,0.8
+234,Jonathan Grimes,RB,HOU,3000,0.8,0,,,,,Jonathan Stewart,RB,3900,NO@Car 08:25PM ET,9.44
+235,Jonathan Stewart,RB,CAR,3900,9.44,7.1,,,,,Jordan Cameron,TE,3500,TB@Cle 01:00PM ET,7.833
+236,Jordan Cameron,TE,CLE,3500,7.833,2.5,,,,,Jordan Matthews,WR,4000,Phi@Hou 01:00PM ET,9.757
+237,Jordan Matthews,WR,PHI,4000,9.757,4.6,,,,,Jordan Reed,TE,4400,Was@Min 01:00PM ET,10
+238,Jordan Reed,TE,WAS,4400,10,6.8,,,,,Jordan Todman,RB,3000,Jax@Cin 01:00PM ET,2.438
+239,Jordan Todman,RB,JAC,3000,2.438,1.6,,,,,Joseph Morgan,WR,3000,NO@Car 08:25PM ET,0
+240,Jorvorskie Lane,RB,TB,3000,2.438,0,,,,,Joseph Randle,RB,3000,Ari@Dal 01:00PM ET,1.963
+241,Joseph Morgan,WR,NO,3000,0,0,,,,,Josh Hill,TE,3000,NO@Car 08:25PM ET,5.6
+242,Joseph Randle,RB,DAL,3000,1.963,1.7,,,,,Josh Huff,WR,3000,Phi@Hou 01:00PM ET,0.867
+243,Josh Hill,TE,NO,3000,5.6,1.3,,,,,Josh Johnson,QB,5000,StL@SF 04:05PM ET,0
+244,Josh Huff,WR,PHI,3000,0.867,0.7,,,,,Josh McCown,QB,5000,TB@Cle 01:00PM ET,12.033
+245,Josh Johnson,QB,SF,5000,0,0,,,,,Julian Edelman,WR,4100,Den@NE 04:25PM ET,12.875
+246,Josh McCown,QB,TB,5000,12.033,0,,,,,Julius Thomas,TE,5600,Den@NE 04:25PM ET,17.1
+247,Julian Edelman,WR,NE,4100,12.875,8.4,,,,,Junior Hemingway,WR,3000,NYJ@KC 01:00PM ET,2.414
+248,Julius Thomas,TE,DEN,5600,17.1,12.3,,,,,Justin Brown,WR,3000,Bal@Pit 08:30PM ET,3.4
+249,Junior Hemingway,WR,KC,3000,2.414,2.6,,,,,Justin Forsett,RB,5300,Bal@Pit 08:30PM ET,14.95
+250,Justice Cunningham,TE,STL,3000,2.414,0,,,,,Juwan Thompson,RB,3200,Den@NE 04:25PM ET,4.243
+251,Justin Blackmon,WR,JAC,3000,2.414,0,,,,,Kamar Aiken,WR,3000,Bal@Pit 08:30PM ET,3.538
+252,Justin Brown,WR,PIT,3000,3.4,0,,,,,Kapri Bibbs,RB,3000,Den@NE 04:25PM ET,0
+253,Justin Forsett,RB,BAL,5300,14.95,10.3,,,,,Kassim Osgood,WR,3000,StL@SF 04:05PM ET,0
+254,Juwan Thompson,RB,DEN,3200,4.243,6.7,,,,,Keenan Allen,WR,5500,SD@Mia 01:00PM ET,11.838
+255,Kamar Aiken,WR,BAL,3000,3.538,3.2,,,,,Kellen Clemens,QB,5000,SD@Mia 01:00PM ET,0
+256,Kassim Osgood,WR,SF,3000,0,0,,,,,Kelvin Benjamin,WR,6600,NO@Car 08:25PM ET,15.888
+257,Keenan Allen,WR,SD,5500,11.838,10.1,,,,,Kenbrell Thompkins,WR,3300,Oak@Sea 04:25PM ET,3.88
+258,Kellen Clemens,QB,SD,5000,0,0,,,,,Kenny Britt,WR,3100,StL@SF 04:05PM ET,6.9
+259,Kellen Winslow,TE,FA,5000,0,0,,,,,Kenny Stills,WR,3600,NO@Car 08:25PM ET,9.683
+260,Kelvin Benjamin,WR,CAR,6600,15.888,13.8,,,,,Keshawn Martin,WR,3000,Phi@Hou 01:00PM ET,0.725
+261,Kenbrell Thompkins,WR,OAK,3300,3.88,2,,,,,Kevin Brock,TE,3000,Jax@Cin 01:00PM ET,0.14
+262,Kenny Britt,WR,STL,3100,6.9,6.6,,,,,Kevin McDermott,TE,3000,Bal@Pit 08:30PM ET,0
+263,Kenny Stills,WR,NO,3600,9.683,4.9,,,,,Kevin Norwood,WR,3000,Oak@Sea 04:25PM ET,2.35
+264,Keshawn Martin,WR,HOU,3000,0.725,0.3,,,,,Kevin Ogletree,WR,3000,Ind@NYG 08:30PM ET,0
+265,Kevin Brock,TE,CIN,3000,0.14,0.3,,,,,Khiry Robinson,RB,3200,NO@Car 08:25PM ET,8.1
+266,Kevin Norwood,WR,SEA,3000,2.35,0.5,,,,,Kiero Small,RB,3000,TB@Cle 01:00PM ET,0
+267,Kevin Ogletree,WR,NYG,3000,0,0.2,,,,,Kirk Cousins,QB,5800,Was@Min 01:00PM ET,17.567
+268,Khiry Robinson,RB,NO,3200,8.1,4,,,,,Knile Davis,RB,3400,NYJ@KC 01:00PM ET,12.757
+269,Kiero Small,RB,CLE,3000,0,0.7,,,,,Kyle Juszczyk,RB,3000,Bal@Pit 08:30PM ET,3.325
+270,Kirk Cousins,QB,WAS,5800,17.567,0,,,,,Kyle Nelson,TE,3000,StL@SF 04:05PM ET,0
+271,Knile Davis,RB,KC,3400,12.757,5.1,,,,,Kyle Rudolph,TE,3000,Was@Min 01:00PM ET,8.533
+272,Kyle Juszczyk,RB,BAL,3000,3.325,2,,,,,Ladarius Green,TE,3000,SD@Mia 01:00PM ET,4.071
+273,Kyle Rudolph,TE,MIN,3000,8.533,0,,,,,Lamar Miller,RB,5600,SD@Mia 01:00PM ET,15.786
+274,Kyle Williams,WR,KC,3000,8.533,0,,,,,Lance Dunbar,RB,3000,Ari@Dal 01:00PM ET,3.263
+275,Ladarius Green,TE,SD,3000,4.071,1.9,,,,,Lance Kendricks,TE,3000,StL@SF 04:05PM ET,7.543
+276,Lamar Miller,RB,MIA,5600,15.786,14.1,,,,,Lance Moore,WR,3000,Bal@Pit 08:30PM ET,4.983
+277,Lance Dunbar,RB,DAL,3000,3.263,2,,,,,Landry Jones,QB,5000,Bal@Pit 08:30PM ET,0
+278,Lance Kendricks,TE,STL,3000,7.543,4.7,,,,,Larry Donnell,TE,4600,Ind@NYG 08:30PM ET,12.457
+279,Lance Moore,WR,PIT,3000,4.983,2.2,,,,,Larry Fitzgerald,WR,5700,Ari@Dal 01:00PM ET,12.614
+280,Landry Jones,QB,PIT,5000,0,0,,,,,Latavius Murray,RB,3000,Oak@Sea 04:25PM ET,0.1
+281,Larry Donnell,TE,NYG,4600,12.457,9.1,,,,,LeGarrette Blount,RB,3000,Bal@Pit 08:30PM ET,5.988
+282,Larry Fitzgerald,WR,ARI,5700,12.614,10.7,,,,,LeSean McCoy,RB,5200,Phi@Hou 01:00PM ET,12.329
+283,Latavius Murray,RB,OAK,3000,0.1,0,,,,,Le'Veon Bell,RB,7000,Bal@Pit 08:30PM ET,21.075
+284,LeGarrette Blount,RB,PIT,3000,5.988,3.1,,,,,Logan Paulsen,TE,3000,Was@Min 01:00PM ET,1.575
+285,Leonard Hankerson,WR,WAS,3000,5.988,0,,,,,Logan Thomas,QB,5000,Ari@Dal 01:00PM ET,7.24
+286,LeSean McCoy,RB,PHI,7000,21.075,13.3,,,,,Lorenzo Taliaferro,RB,3300,Bal@Pit 08:30PM ET,7.075
+287,Le'Veon Bell,RB,PIT,3000,0.1,14.5,,,,,Louis Murphy Jr.,WR,3400,TB@Cle 01:00PM ET,12.925
+288,Logan Paulsen,TE,WAS,3000,1.575,0.1,,,,,Luke McCown,QB,5000,NO@Car 08:25PM ET,0
+289,Logan Thomas,QB,ARI,5000,7.24,0,,,,,Luke Stocker,TE,3000,TB@Cle 01:00PM ET,0.757
+290,Lorenzo Taliaferro,RB,BAL,3300,7.075,8.3,,,,,Luke Willson,TE,3000,Oak@Sea 04:25PM ET,3.217
+291,Louis Murphy,WR,TB,3300,7.075,4.3,,,,,Malcom Floyd,WR,4700,SD@Mia 01:00PM ET,11.5
+292,Luke McCown,QB,NO,5000,0,0,,,,,Marcel Reece,RB,3000,Oak@Sea 04:25PM ET,3.667
+293,Luke Stocker,TE,TB,3000,0.757,0.1,,,,,Marion Grice,RB,3000,Ari@Dal 01:00PM ET,0
+294,Luke Willson,TE,SEA,3000,3.217,6,,,,,Mark Ingram,RB,5500,NO@Car 08:25PM ET,17.725
+295,Malcom Floyd,WR,SD,4700,11.5,8.5,,,,,Mark Sanchez,QB,5000,Phi@Hou 01:00PM ET,0
+296,Marcedes Lewis,TE,JAC,4700,11.5,0,,,,,Markus Wheaton,WR,3900,Bal@Pit 08:30PM ET,8.725
+297,Marcel Reece,RB,OAK,3000,3.667,1.6,,,,,Marlon Brown,WR,3000,Bal@Pit 08:30PM ET,1.633
+298,Marcus Harris,WR,NYG,3000,3.667,0,,,,,Marlon Moore,WR,3000,TB@Cle 01:00PM ET,0
+299,Marcus Lattimore,RB,SF,3000,3.667,0,,,,,Marqise Lee,WR,3000,Jax@Cin 01:00PM ET,5.06
+300,Mario Manningham,WR,NYG,3000,3.667,0,,,,,MarQueis Gray,TE,3000,Was@Min 01:00PM ET,0.371
+301,Marion Grice,RB,ARI,3000,0,0,,,,,Marques Colston,WR,3900,NO@Car 08:25PM ET,10.971
+302,Mark Ingram,RB,NO,5500,17.725,13.5,,,,,Marshawn Lynch,RB,6100,Oak@Sea 04:25PM ET,16.986
+303,Mark Sanchez,QB,PHI,5000,0,0,,,,,Martavis Bryant,WR,5500,Bal@Pit 08:30PM ET,18.65
+304,Markus Wheaton,WR,PIT,3900,8.725,3.9,,,,,Matt Asiata,RB,3500,Was@Min 01:00PM ET,10.363
+305,Marlon Brown,WR,BAL,3000,1.633,2.4,,,,,Matt Barkley,QB,5000,Phi@Hou 01:00PM ET,0
+306,Marlon Moore,WR,CLE,3000,0,0,,,,,Matt Hasselbeck,QB,5000,Ind@NYG 08:30PM ET,0.25
+307,Marqise Lee,WR,JAC,3000,5.06,2.1,,,,,Matt McGloin,QB,5000,Oak@Sea 04:25PM ET,7.46
+308,Marques Colston,WR,NO,3900,10.971,7.7,,,,,Matt Moore,QB,5000,SD@Mia 01:00PM ET,-0.2
+309,Marshawn Lynch,RB,SEA,6100,16.986,16.7,,,,,Matt Schaub,QB,5000,Oak@Sea 04:25PM ET,-0.5
+310,Martavis Bryant,WR,PIT,5500,18.65,7.5,,,,,Matt Spaeth,TE,3000,Bal@Pit 08:30PM ET,0
+311,Matt Asiata,RB,MIN,3500,10.363,4.6,,,,,Matthew Slater,WR,3000,Den@NE 04:25PM ET,0
+312,Matt Barkley,QB,PHI,5000,0,0,,,,,Maurice Jones-Drew,RB,3000,Oak@Sea 04:25PM ET,2.92
+313,Matt Blanchard,QB,CAR,5000,0,0,,,,,Michael Cox,RB,3000,Ind@NYG 08:30PM ET,0
+314,Matt Hasselbeck,QB,IND,5000,0.25,0,,,,,Michael Crabtree,WR,4500,StL@SF 04:05PM ET,11.8
+315,Matt McGloin,QB,OAK,5000,7.46,0,,,,,Michael Floyd,WR,3800,Ari@Dal 01:00PM ET,10.357
+316,Matt Moore,QB,MIA,5000,-0.2,0,,,,,Michael Hoomanawanui,TE,3000,Den@NE 04:25PM ET,0.513
+317,Matt Schaub,QB,OAK,5000,-0.5,0,,,,,Michael Palmer,TE,3000,Bal@Pit 08:30PM ET,0.888
+318,Matt Slater,WR,NE,5000,-0.5,0,,,,,Michael Vick,QB,6600,NYJ@KC 01:00PM ET,2.367
+319,Matt Spaeth,TE,PIT,3000,0,0.1,,,,,Mike Brown,WR,3000,Jax@Cin 01:00PM ET,2.96
+320,Maurice Jones-Drew,RB,OAK,3000,2.92,2.2,,,,,Mike Campanaro,WR,3000,Bal@Pit 08:30PM ET,6.833
+321,Michael Campanaro,WR,BAL,3000,2.92,0.8,,,,,Mike Evans,WR,4700,TB@Cle 01:00PM ET,11.767
+322,Michael Crabtree,WR,SF,4500,11.8,9.8,,,,,Mike Glennon,QB,5700,TB@Cle 01:00PM ET,16.696
+323,Michael Floyd,WR,ARI,3800,10.357,9.1,,,,,Mike James,RB,3000,TB@Cle 01:00PM ET,0.283
+324,Michael Hoomanawanui,TE,NE,3000,0.513,0.1,,,,,Mike Kafka,QB,5000,TB@Cle 01:00PM ET,0
+325,Michael Palmer,TE,PIT,3000,0.888,0.1,,,,,Mike Leach,TE,3000,Ari@Dal 01:00PM ET,0
+326,Michael Robinson,RB,FA,3000,0.888,0,,,,,Mike Wallace,WR,5200,SD@Mia 01:00PM ET,14.914
+327,Michael Vick,QB,NYJ,6600,2.367,11.4,,,,,Miles Austin,WR,3400,TB@Cle 01:00PM ET,9.071
+328,Mike Brown,WR,JAC,3000,2.96,0,,,,,Mohamed Sanu,WR,6400,Jax@Cin 01:00PM ET,17.731
+329,Mike Evans,WR,TB,4700,11.767,8.1,,,,,Montee Ball,RB,3700,Den@NE 04:25PM ET,9.35
+330,Mike Gillislee,RB,MIA,4700,11.767,0,,,,,Mychal Rivera,TE,3200,Oak@Sea 04:25PM ET,5.343
+331,Mike Glennon,QB,TB,5700,16.696,13.3,,,,,Nic Jacobs,TE,3000,Jax@Cin 01:00PM ET,1.44
+332,Mike James,RB,TB,3000,0.283,2.3,,,,,Nick Foles,QB,7700,Phi@Hou 01:00PM ET,19.466
+333,Mike Thomas,WR,HOU,3000,0,0,,,,,Nick Toon,WR,3000,NO@Car 08:25PM ET,0
+334,Mike Tolbert,RB,CAR,3000,0,0,,,,,Niles Paul,TE,3400,Was@Min 01:00PM ET,9.263
+335,Mike Wallace,WR,MIA,5200,14.914,12.5,,,,,Odell Beckham Jr.,WR,5000,Ind@NYG 08:30PM ET,13.3
+336,Miles Austin,WR,CLE,3400,9.071,7.1,,,,,Owen Daniels,TE,3200,Bal@Pit 08:30PM ET,10.357
+337,Mohamed Sanu,WR,CIN,6400,17.731,11.5,,,,,Panthers,DST,2400,NO@Car 08:25PM ET,5.75
+338,Montee Ball,RB,DEN,3700,9.35,1.2,,,,,Patriots,DST,2600,Den@NE 04:25PM ET,9.875
+339,Mychal Rivera,TE,OAK,3200,5.343,3.9,,,,,Paul Richardson,WR,3000,Oak@Sea 04:25PM ET,2.167
+340,Nate Burleson,WR,CLE,3200,5.343,0,,,,,Percy Harvin,WR,4200,NYJ@KC 01:00PM ET,9.583
+341,Nic Jacobs,TE,JAC,3000,1.44,0.1,,,,,Peyton Hillis,RB,3000,Ind@NYG 08:30PM ET,2.329
+342,Nick Foles,QB,PHI,7700,19.466,17.5,,,,,Peyton Manning,QB,9800,Den@NE 04:25PM ET,25.794
+343,Nick Kasa,TE,OAK,7700,19.466,0,,,,,Phil Bates,WR,3000,Oak@Sea 04:25PM ET,0
+344,Nick Toon,WR,NO,3000,0,0,,,,,Philip Rivers,QB,8300,SD@Mia 01:00PM ET,22.053
+345,Niles Paul,TE,WAS,3400,9.263,2.1,,,,,Phillip Supernaw,TE,3000,Bal@Pit 08:30PM ET,0
+346,Odell Beckham Jr.,WR,NYG,5000,13.3,9.6,,,,,Philly Brown,WR,3000,NO@Car 08:25PM ET,4.371
+347,Owen Daniels,TE,BAL,3200,10.357,0,,,,,Pierre Garcon,WR,6100,Was@Min 01:00PM ET,13.038
+348,Paul Richardson,WR,SEA,3000,2.167,3.4,,,,,Pierre Thomas,RB,4800,NO@Car 08:25PM ET,12.95
+349,Percy Harvin,WR,NYJ,4200,9.583,5.7,,,,,Preston Parker,WR,3000,Ind@NYG 08:30PM ET,4.243
+350,Peyton Hillis,RB,NYG,3000,2.329,2.3,,,,,Quinton Patton,WR,3000,StL@SF 04:05PM ET,0
+351,Peyton Manning,QB,DEN,9800,25.794,23.2,,,,,Raiders,DST,2700,Oak@Sea 04:25PM ET,2.857
+352,Phil Bates,WR,SEA,3000,0,0,,,,,Rams,DST,2800,StL@SF 04:05PM ET,5
+353,Philip Rivers,QB,SD,8300,22.053,19.7,,,,,Rashad Jennings,RB,5500,Ind@NYG 08:30PM ET,15.1
+354,Phillip Supernaw,TE,BAL,3000,0,1,,,,,Ravens,DST,3000,Bal@Pit 08:30PM ET,8
+355,Philly Brown,WR,CAR,3000,4.371,0.8,,,,,Redskins,DST,2900,Was@Min 01:00PM ET,4.5
+356,Pierre Garcon,WR,WAS,6100,13.038,8.3,,,,,Reggie Wayne,WR,4600,Ind@NYG 08:30PM ET,12.914
+357,Pierre Thomas,RB,NO,4800,12.95,1,,,,,Rex Burkhead,RB,3000,Jax@Cin 01:00PM ET,0
+358,Plaxico Burress,WR,FA,4800,12.95,0,,,,,Rhett Ellison,TE,3000,Was@Min 01:00PM ET,1.888
+359,Preston Parker,WR,NYG,3000,4.243,3.6,,,,,Ricardo Lockette,WR,3000,Oak@Sea 04:25PM ET,4.129
+360,Quincy Enunwa,WR,NYJ,3000,4.243,0,,,,,Riley Cooper,WR,4100,Phi@Hou 01:00PM ET,9.214
+361,Quinton Patton,WR,SF,3000,0,0,,,,,Rishard Matthews,WR,3000,SD@Mia 01:00PM ET,2.243
+362,Rashad Jennings,RB,NYG,5500,15.1,4.2,,,,,Rob Gronkowski,TE,7600,Den@NE 04:25PM ET,17.975
+363,Reggie Wayne,WR,IND,4600,12.914,3.7,,,,,Rob Housler,TE,3000,Ari@Dal 01:00PM ET,1.3
+364,Rex Burkhead,RB,CIN,3000,0,0,,,,,Robert Griffin III,QB,6400,Was@Min 01:00PM ET,6.8
+365,Rex Grossman,QB,CLE,3000,0,0,,,,,Robert Herron,WR,3000,TB@Cle 01:00PM ET,2.967
+366,Rhett Ellison,TE,MIN,3000,1.888,0.5,,,,,Robert Hughes,RB,3000,Ari@Dal 01:00PM ET,0.986
+367,Ricardo Lockette,WR,SEA,3000,4.129,1.1,,,,,Robert Meachem,WR,3000,NO@Car 08:25PM ET,1.429
+368,Richard Gordon,TE,TEN,3000,4.129,0,,,,,Robert Turbin,RB,3000,Oak@Sea 04:25PM ET,4.657
+369,Richie Brockel,TE,CAR,3000,4.129,0,,,,,Rodney Smith,WR,3000,TB@Cle 01:00PM ET,0
+370,Riley Cooper,WR,PHI,4100,9.214,5.5,,,,,Ronnie Brown,RB,3000,SD@Mia 01:00PM ET,1.517
+371,Rishard Matthews,WR,MIA,3000,2.243,1.2,,,,,Ronnie Hillman,RB,5600,Den@NE 04:25PM ET,14.4
+372,Rob Gronkowski,TE,NE,7600,17.975,14.2,,,,,Roy Helu Jr.,RB,3800,Was@Min 01:00PM ET,8.825
+373,Robert Griffin III,QB,WAS,6400,6.8,6,,,,,Rueben Randle,WR,5400,Ind@NYG 08:30PM ET,11.157
+374,Robert Herron,WR,TB,3000,2.967,0.8,,,,,Russell Shepard,WR,3000,TB@Cle 01:00PM ET,0.714
+375,Robert Housler,TE,ARI,3000,2.967,0.8,,,,,Russell Wilson,QB,7800,Oak@Sea 04:25PM ET,23.786
+376,Robert Hughes,RB,ARI,3000,0.986,1,,,,,Ryan Fitzpatrick,QB,5700,Phi@Hou 01:00PM ET,14.21
+377,Robert Meachem,WR,NO,3000,1.429,0.9,,,,,Ryan Grant,WR,3000,Was@Min 01:00PM ET,1.338
+378,Robert Turbin,RB,SEA,3000,4.657,2.5,,,,,Ryan Griffin,TE,3000,Phi@Hou 01:00PM ET,0.425
+379,Rod Streater,WR,OAK,3000,4.657,0,,,,,Ryan Hewitt,TE,3000,Jax@Cin 01:00PM ET,0.443
+380,Rodney Smith,WR,CLE,3000,0,0,,,,,Ryan Mallett,QB,5000,Phi@Hou 01:00PM ET,-0.1
+381,Ronnie Brown,RB,SD,3000,1.517,1.6,,,,,Ryan Mathews,RB,4200,SD@Mia 01:00PM ET,10.85
+382,Ronnie Hillman,RB,DEN,5600,14.4,12,,,,,Ryan Nassib,QB,5000,Ind@NYG 08:30PM ET,1.2
+383,Roy Helu,RB,WAS,5600,14.4,4.4,,,,,Ryan Tannehill,QB,6300,SD@Mia 01:00PM ET,17.509
+384,Rueben Randle,WR,NYG,5400,11.157,9.6,,,,,Saalim Hakim,WR,3000,NYJ@KC 01:00PM ET,0
+385,Russell Shepard,WR,TB,3000,0.714,0,,,,,Saints,DST,2600,NO@Car 08:25PM ET,3.714
+386,Russell Wilson,QB,SEA,7800,23.786,22.7,,,,,Santana Moss,WR,3000,Was@Min 01:00PM ET,0
+387,Ryan Fitzpatrick,QB,HOU,5700,14.21,14.8,,,,,Seahawks,DST,3300,Oak@Sea 04:25PM ET,5.429
+388,Ryan Grant,WR,WAS,3000,1.338,0.1,,,,,Seyi Ajirotutu,WR,3000,SD@Mia 01:00PM ET,0.263
+389,Ryan Griffin,TE,HOU,3000,0.425,0.1,,,,,Shane Vereen,RB,4600,Den@NE 04:25PM ET,11.613
+390,Ryan Hewitt,RB,CIN,3000,0.443,0.3,,,,,Shaun Draughn,RB,3000,SD@Mia 01:00PM ET,0.271
+391,Ryan Hewitt,TE,CIN,3000,0.443,0.3,,,,,Shaun Hill,QB,5000,StL@SF 04:05PM ET,2.14
+392,Ryan Mallett,QB,HOU,5000,-0.1,0,,,,,Silas Redd Jr.,RB,3000,Was@Min 01:00PM ET,1.325
+393,Ryan Mathews,RB,SD,4200,10.85,1.2,,,,,Stedman Bailey,WR,3000,StL@SF 04:05PM ET,3.06
+394,Ryan Nassib,QB,NYG,5000,1.2,0,,,,,Steelers,DST,3000,Bal@Pit 08:30PM ET,7.125
+395,Ryan Tannehill,QB,MIA,6300,17.509,18.2,,,,,Stepfan Taylor,RB,3000,Ari@Dal 01:00PM ET,4.9
+396,Saalim Hakim,WR,NYJ,3000,0,0,,,,,Steve Smith Sr.,WR,5600,Bal@Pit 08:30PM ET,17.938
+397,Santana Moss,WR,WAS,3000,0,0,,,,,Stevie Johnson,WR,5300,StL@SF 04:05PM ET,11.071
+398,Seyi Ajirotutu,WR,SD,3000,0.263,0.1,,,,,Storm Johnson,RB,3000,Jax@Cin 01:00PM ET,6.333
+399,Shane Vereen,RB,NE,4600,11.613,11.4,,,,,T.J. Graham,WR,3000,NYJ@KC 01:00PM ET,0.525
+400,Shaun Draughn,RB,SD,3000,0.271,0,,,,,T.Y. Hilton,WR,8100,Ind@NYG 08:30PM ET,20.513
+401,Shaun Hill,QB,STL,5000,2.14,0,,,,,Tarvaris Jackson,QB,5000,Oak@Sea 04:25PM ET,0
+402,Silas Redd,RB,WAS,5000,2.14,0,,,,,Tavon Austin,WR,3000,StL@SF 04:05PM ET,5.3
+403,Stanley Havili,RB,IND,3000,1.325,0,,,,,Taylor Gabriel,WR,3100,TB@Cle 01:00PM ET,6.9
+404,Stedman Bailey,WR,STL,3000,3.06,3,,,,,Ted Ginn Jr.,WR,3000,Ari@Dal 01:00PM ET,2.3
+405,Stepfan Taylor,RB,ARI,3000,4.9,1.5,,,,,Teddy Bridgewater,QB,5200,Was@Min 01:00PM ET,12.724
+406,Steve Johnson,WR,SF,3000,4.9,5.8,,,,,Terrance West,RB,3300,TB@Cle 01:00PM ET,8.35
+407,Steve Smith,WR,BAL,3000,4.9,11.5,,,,,Terrance Williams,WR,4900,Ari@Dal 01:00PM ET,12.713
+408,Storm Johnson,RB,JAC,3000,6.333,0.2,,,,,Texans,DST,3100,Phi@Hou 01:00PM ET,9.875
+409,T.J. Graham,WR,NYJ,3000,0.525,0.4,,,,,Tim Wright,TE,4500,Den@NE 04:25PM ET,6.625
+410,Tarvaris Jackson,QB,SEA,5000,0,0,,,,,Toby Gerhart,RB,3000,Jax@Cin 01:00PM ET,5.983
+411,Tavon Austin,WR,STL,3000,5.3,3.6,,,,,Tom Brady,QB,8400,Den@NE 04:25PM ET,19.57
+412,Taylor Gabriel,WR,CLE,3100,6.9,5.1,,,,,Tom Savage,QB,5000,Phi@Hou 01:00PM ET,0
+413,Taylor Price,WR,SEA,3100,6.9,0,,,,,Tony Romo,QB,7500,Ari@Dal 01:00PM ET,17.478
+414,Ted Ginn Jr.,WR,ARI,3000,2.3,0.5,,,,,Torrey Smith,WR,4100,Bal@Pit 08:30PM ET,9.1
+415,Teddy Bridgewater,QB,MIN,5200,12.724,12.5,,,,,Travaris Cadet,RB,3500,NO@Car 08:25PM ET,6.3
+416,Terrance West,RB,CLE,3300,8.35,5.1,,,,,Travis Benjamin,WR,3000,TB@Cle 01:00PM ET,6.129
+417,Terrance Williams,WR,DAL,4900,12.713,10.2,,,,,Travis Kelce,TE,4100,NYJ@KC 01:00PM ET,11.6
+418,Timothy Wright,TE,NE,4500,6.625,5.4,,,,,Tre Mason,RB,3200,StL@SF 04:05PM ET,8.333
+419,Toby Gerhart,RB,JAC,3000,5.983,2.4,,,,,Trent Richardson,RB,4500,Ind@NYG 08:30PM ET,11.871
+420,Tom Brady,QB,NE,8400,19.57,22.4,,,,,Trey Burton,TE,3000,Phi@Hou 01:00PM ET,0.143
+421,Tom Savage,QB,HOU,5000,0,0,,,,,Trey Watts,RB,3000,StL@SF 04:05PM ET,1.033
+422,Tommy Bohanon,RB,NYJ,5000,0,0,,,,,Trindon Holliday,WR,3000,TB@Cle 01:00PM ET,0
+423,Tony Romo,QB,DAL,7500,17.478,18.7,,,,,Troy Niklas,TE,3000,Ari@Dal 01:00PM ET,0.65
+424,Torrey Smith,WR,BAL,4100,9.1,8,,,,,Tyler Clutts,RB,3000,Ari@Dal 01:00PM ET,0.138
+425,Travaris Cadet,RB,NO,3500,6.3,5.9,,,,,Tyrod Taylor,QB,5000,Bal@Pit 08:30PM ET,-0.3
+426,Travis Benjamin,WR,CLE,3000,6.129,2.4,,,,,Vance McDonald,TE,3000,StL@SF 04:05PM ET,0.8
+427,Travis Kelce,TE,KC,4100,11.6,9.2,,,,,Vernon Davis,TE,3700,StL@SF 04:05PM ET,8.04
+428,Tre Mason,RB,STL,3200,8.333,6.8,,,,,Vikings,DST,3000,Was@Min 01:00PM ET,8.625
+429,Trent Edwards,QB,OAK,3200,8.333,0,,,,,Vincent Brown,WR,3000,Oak@Sea 04:25PM ET,2.6
+430,Trent Richardson,RB,IND,4500,11.871,7.2,,,,,Vincent Jackson,WR,4500,TB@Cle 01:00PM ET,10.957
+431,Trey Watts,RB,STL,3000,1.033,0,,,,,Virgil Green,TE,3000,Den@NE 04:25PM ET,0.586
+432,Troy Niklas,TE,ARI,3000,0.65,0,,,,,Walt Powell,WR,3000,NYJ@KC 01:00PM ET,-0.25
+433,Ty Hilton,WR,IND,3000,0.65,14.4,,,,,Wes Welker,WR,3600,Den@NE 04:25PM ET,8.62
+434,Tyler Bray,QB,KC,3000,0.65,0,,,,,Will Johnson,RB,3000,Bal@Pit 08:30PM ET,0.8
+435,Tyler Clutts,RB,DAL,3000,0.138,0.1,,,,,Will Ta'ufo'ou,RB,3000,Jax@Cin 01:00PM ET,1.4
+436,Tyler Eifert,TE,CIN,3000,0.138,0,,,,,Zac Stacy,RB,3000,StL@SF 04:05PM ET,8.314
+437,Tyler Thigpen,QB,CLE,3000,0.138,0,,,,,Zach Ertz,TE,3800,Phi@Hou 01:00PM ET,10.057
+438,Tyrod Taylor,QB,BAL,5000,-0.3,0,,,,,Zach Line,RB,3000,Was@Min 01:00PM ET,0
+439,Vance McDonald,TE,SF,3000,0.8,0.3,,,,,Zach Miller,TE,3000,Oak@Sea 04:25PM ET,4.533
+440,Vernon Davis,TE,SF,3700,8.04,6.2,,,,,Zach Sudfeld,TE,3000,NYJ@KC 01:00PM ET,0.313
+441,Vincent Brown,WR,OAK,3000,2.6,0.6,,,,,,,,,
+442,Vincent Jackson,WR,TB,4500,10.957,9.6,,,,,,,,,
+443,Virgil Green,TE,DEN,3000,0.586,0.1,,,,,,,,,
+444,Vonta Leach,RB,FA,3000,0.586,0,,,,,,,,,
+445,Walt Powell,WR,NYJ,3000,-0.25,0,,,,,,,,,
+446,Wes Welker,WR,DEN,3600,8.62,5,,,,,,,,,
+447,Will Johnson,RB,PIT,3000,0.8,0.4,,,,,,,,,
+448,Will Ta'ufo'ou,RB,JAC,3000,1.4,0.5,,,,,,,,,
+449,Will Tukuafu,RB,SF,3000,1.4,0,,,,,,,,,
+450,Willis McGahee,RB,FA,3000,1.4,0,,,,,,,,,
+451,Zac Stacy,RB,STL,3000,8.314,3,,,,,,,,,
+452,Zach Ertz,TE,PHI,3800,10.057,8.6,,,,,,,,,
+453,Zach Miller,TE,SEA,3000,4.533,1.3,,,,,,,,,
+454,Zach Sudfeld,TE,NYJ,3000,0.313,0.1,,,,,,,,,
