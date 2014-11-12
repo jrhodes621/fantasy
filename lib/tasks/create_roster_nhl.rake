@@ -37,7 +37,13 @@ task :create_rosters_nhl => [:environment] do
   products = CartesianProduct.new(center_combos, winger_combos, defencemen_combos, goalies, utils)
 
   puts "Generated cartesian product of positions " + products.count.to_s
-  p = products.collect { |p| p.flatten }
+
+  p = []
+  products.each { |product|
+    p << product.flatten(1)
+    puts p.count
+  }
+
   i = products.count
   
   p.each do |product|
