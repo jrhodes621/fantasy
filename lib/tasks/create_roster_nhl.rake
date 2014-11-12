@@ -36,6 +36,7 @@ task :create_rosters_nhl => [:environment] do
 
   products = CartesianProduct.new(center_combos, winger_combos, defencemen_combos, goalies, utils)
 
+  puts "Generated cartesian product of positions " + products.count.to_s
   p = products.collect { |p| p.flatten }
   i = products.count
   
@@ -63,7 +64,10 @@ task :create_rosters_nhl => [:environment] do
   end
 
   top_rosters = rosters.sort_by { |r| r[:points] }.reverse.take(5000)
+  puts "Got top rosters"
+
   unique_rosters = rosters.uniq { |r| r[:checksum] }
+  put "Pulled out unique rosters"
 
   selected_rosters = []
   selected_index = 0
@@ -99,5 +103,6 @@ task :create_rosters_nhl => [:environment] do
   end
 
   the_rosters = selected_rosters.sort_by { |r| r[:points] }.reverse.take(25)
-  
+  puts the_rosters
+
 end
