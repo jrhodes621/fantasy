@@ -1,5 +1,6 @@
 require 'csv'
 require 'digest/sha1'
+require 'enumerator'
 
 desc "Create Rosters for NHL"
 task :create_rosters_nhl => [:environment] do
@@ -39,7 +40,8 @@ task :create_rosters_nhl => [:environment] do
   puts "Generated cartesian product of positions " + products.count.to_s
 
   p = []
-  Parallel.map(products, :in_threads=>3) { |product|
+  size = products.count/10
+  Parallel.map(products.each_slice(size)) { |product|
     p << product.flatten(1)
     puts p.count
   }
