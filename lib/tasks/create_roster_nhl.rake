@@ -39,7 +39,7 @@ task :create_rosters_nhl => [:environment] do
   puts "Generated cartesian product of positions " + products.count.to_s
 
   p = []
-  products.each { |product|
+  Parallel.map(products, :in_threads=>3) { |product|
     p << product.flatten(1)
     puts p.count
   }
