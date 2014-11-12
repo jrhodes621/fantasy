@@ -28,7 +28,7 @@ task :create_rosters_nhl => [:environment] do
   wingers = players.select { |player| player[:position] == "W"}.sort_by { |v| v[:points] }.reverse.take(5)
   defencemen = players.select { |player| player[:position] == "D"}.sort_by { |v| v[:points] }.reverse.take(5)
   goalies = players.select { |player| player[:position] == "G"}.sort_by { |v| v[:points] }.reverse.take(5)
-  utils = centers + wingers + defencement
+  utils = centers + wingers + defencemen
 
   center_combos = centers.combination(2).to_a
   winger_combos = wingers.combination(3).to_a
