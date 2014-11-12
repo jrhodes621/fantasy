@@ -40,7 +40,7 @@ task :create_rosters_nhl => [:environment] do
   puts "Generated cartesian product of positions " + products.count.to_s
 
   p = []
-  size = products.count/10
+  size = products.count/3
   Parallel.map(products.each_slice(size)) { |product|
     p << product.flatten(1)
     puts p.count
