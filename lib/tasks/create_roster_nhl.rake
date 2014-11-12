@@ -24,11 +24,11 @@ task :create_rosters_nhl => [:environment] do
 
   rosters = []
   
-  centers = players.select { |player| player[:position] == "C"}.sort_by { |v| v[:points] }.reverse.take(20)
-  wingers = players.select { |player| player[:position] == "W"}.sort_by { |v| v[:points] }.reverse.take(20)
-  defencemen = players.select { |player| player[:position] == "D"}.sort_by { |v| v[:points] }.reverse.take(20)
-  goalies = players.select { |player| player[:position] == "G"}.sort_by { |v| v[:points] }.reverse.take(20)
-  utils = centers + wingers + defencemen
+  centers = players.select { |player| player[:position] == "C"}.sort_by { |v| v[:points] }.reverse.take(5)
+  wingers = players.select { |player| player[:position] == "W"}.sort_by { |v| v[:points] }.reverse.take(5)
+  defencemen = players.select { |player| player[:position] == "D"}.sort_by { |v| v[:points] }.reverse.take(5)
+  goalies = players.select { |player| player[:position] == "G"}.sort_by { |v| v[:points] }.reverse.take(5)
+  utils = centers + wingers + defencement
 
   center_combos = centers.combination(2).to_a
   winger_combos = wingers.combination(3).to_a
@@ -36,10 +36,8 @@ task :create_rosters_nhl => [:environment] do
 
   products = CartesianProduct.new(center_combos, winger_combos, defencemen_combos, goalies, utils)
 
-  p = Parallel.map(products, :in_threads=>20) do |p| 
-    p.flatten 
-  end
-  i = p.count
+  p = products.collect { |p| p.flatten }
+  i = products.count
   
   p.each do |product|
     salary = 0
@@ -101,7 +99,5 @@ task :create_rosters_nhl => [:environment] do
   end
 
   the_rosters = selected_rosters.sort_by { |r| r[:points] }.reverse.take(25)
-
-  puts the_rosters
   
 end
