@@ -135,7 +135,6 @@ task :create_rosters_nba => [:environment] do
           end
         end
 
-        puts selected_index
       else
         the_matched_rosters << unique_roster
       end 
@@ -144,7 +143,7 @@ task :create_rosters_nba => [:environment] do
     end 
   
   end
-  
+
   puts selected_rosters.to_json
 
 end
@@ -154,13 +153,14 @@ def build_nba_rosters all_point_guards, all_shooting_guards, all_small_forwards,
   min_points = 0
   the_rosters = []
 
+  puts num_of_pg.to_s + " " + num_of_pg.to_s + " " + num_of_sf.to_s  + " " + num_of_pf.to_s  + " " + num_of_center.to_s 
+
   for pg in (0..all_point_guards.count).step(size)
     for sg in (0..all_shooting_guards.count).step(size)
       for sf in (0..all_small_forwards.count).step(size)  
         for pf in (0..all_power_forwards.count).step(size)
           for c in (0..all_centers.count).step(size)
-            puts pg.to_s + " " + sg.to_s + " " + sf.to_s  + " " + pf.to_s  + " " + c.to_s 
-
+            
             pgs = all_point_guards.drop(pg).take(size)
             sgs = all_shooting_guards.drop(sg).take(size)
             sfs = all_small_forwards.drop(sf).take(size)
@@ -180,7 +180,6 @@ def build_nba_rosters all_point_guards, all_shooting_guards, all_small_forwards,
             end
 
             if selected_rosters.count > 0
-              puts "found " + selected_rosters.count.to_s + " rosters"
               the_rosters << selected_rosters
             end
           end
