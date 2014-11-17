@@ -37,7 +37,6 @@ task :create_rosters_nba => [:environment] do
 
   end
 
-  binding.pry
   all_point_guards = players.select { |player| player[:position] == "PG"}.sort_by { |v| v[:points] }.reverse.take(30)
   all_shooting_guards = players.select { |player| player[:position] == "SG"}.sort_by { |v| v[:points] }.reverse.take(30)
   all_small_forwards = players.select { |player| player[:position] == "SF"}.sort_by { |v| v[:points] }.reverse.take(30)
@@ -145,8 +144,7 @@ task :create_rosters_nba => [:environment] do
     end 
   
   end
-
-  binding.pry
+  
   puts selected_rosters.to_json
 
 end
