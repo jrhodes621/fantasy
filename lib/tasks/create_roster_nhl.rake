@@ -7,8 +7,13 @@ task :create_rosters_nhl => [:environment] do
 
   min_points = 0
   the_rosters = []
+  the_matched_rosters = []
+  the_players = Hash.new
   size = 5
-  file = "db/csv/nov14_nhl.csv"
+
+
+  #build the file name dynamically
+  file = "db/csv/nov16_nhl.csv"
   id_position = 0 #12
   name_position = 2 #1
   position_position = 1 # 0
@@ -32,6 +37,7 @@ task :create_rosters_nhl => [:environment] do
 
   end
 
+  binding.pry
   all_centers = players.select { |player| player[:position] == "C"}.sort_by { |v| v[:points] }.reverse.take(30)
   all_wingers = players.select { |player| player[:position] == "W"}.sort_by { |v| v[:points] }.reverse.take(30)
   all_defencemen = players.select { |player| player[:position] == "D"}.sort_by { |v| v[:points] }.reverse.take(30)
@@ -143,7 +149,7 @@ task :create_rosters_nhl => [:environment] do
   end 
 
   unique_rosters = the_rosters.flatten
-    .sort_by { |r| r[:points] }.reverse.take(5000)
+    .sort_by { |r| r[:points] }.reverse.take(200000)
     .each { |roster| roster[:players].flatten! }
     
 
@@ -152,7 +158,16 @@ task :create_rosters_nhl => [:environment] do
   selected_rosters = []
   selected_index = 0
 
-  selected_rosters << unique_rosters[0]
+  unique_roster = unique_rosters[0]
+  selected_rosters << unique_roster
+
+  unique_roster[:players].each do |player|
+    if(the_players.include?(player[:id]))
+      the_players[player[:id]] = the_players[player[:id]] + 1
+    else
+      the_players[player[:id]] = 1
+    end
+  end
 
   unique_rosters.each do |unique_roster|
 
@@ -175,13 +190,38 @@ task :create_rosters_nhl => [:environment] do
 
     if(rosters_matched == 0)
       selected_index += 1
-      selected_rosters << unique_roster
+      players_matched = 0
+    
+      unique_roster[:players].each  do |player|
+        if(the_players.include?(player[:id])  && player[:position] != "G")
+          if the_players[player[:id]] 
+            players_matched += 1
+          end
+        end
+      end
 
-      puts selected_index
+      if(players_matched < 5)
+        selected_rosters << unique_roster
+
+        unique_roster[:players].each do |player|
+          if(the_players.include?(player[:id]))
+            the_players[player[:id]] = the_players[player[:id]] + 1
+          else
+            the_players[player[:id]] = 1
+          end
+        end
+
+        puts selected_index
+      else
+        the_matched_rosters << unique_roster
+      end 
+    else
+      the_matched_rosters << unique_roster
     end 
   
   end
 
+  binding.pry
   puts selected_rosters.to_json
 
 end
@@ -222,6 +262,7 @@ def process_rosters center_combos, winger_combos, defencemen_combos, goalies_com
     }
     #roster[:checksum] = Digest::SHA1.hexdigest roster.to_s
     roster[:matches] = 0
+    roster[:player_matches] = 0
 
     rosters << roster
 

@@ -57,7 +57,7 @@ task :create_rosters_nfl => [:environment] do
       for d in (0..all_defencemen.count).step(size)
         for te in (0..all_goalies.count).step(size)
 
-          puts c.to_s + " " + w.to_s + " " + d.to_s + " " +te.to_s
+          puts c.to_s + " " + w.to_s + " " + d.to_s + " " + te.to_s
 
           centers = all_centers.drop(c).take(size)
           wingers = all_wingers.drop(w).take(size)
@@ -121,7 +121,7 @@ for c in (0..all_centers.count).step(size)
       for d in (0..all_defencemen.count).step(size)
         for te in (0..all_goalies.count).step(size)
 
-          puts c.to_s + " " + w.to_s + " " + d.to_s + " " +te.to_s
+          puts c.to_s + " " + w.to_s + " " + d.to_s + " " + te.to_s
 
           centers = all_centers.drop(c).take(size)
           wingers = all_wingers.drop(w).take(size)
