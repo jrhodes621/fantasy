@@ -42,10 +42,10 @@ task :create_rosters_nhl => [:environment] do
 
   end
 
-  all_centers = players.select { |player| player[:position] == "C" && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_wingers = players.select { |player| (player[:position] == "RW" || player[:position] == "LW") && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_defencemen = players.select { |player| player[:position] == "D" && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_goalies = players.select { |player| player[:position] == "G" && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse
+  all_centers = players.select { |player| player[:position] == "C" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse.take(30)
+  all_wingers = players.select { |player| (player[:position] == "RW" || player[:position] == "LW") && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse.take(30)
+  all_defencemen = players.select { |player| player[:position] == "D" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse.take(30)
+  all_goalies = players.select { |player| player[:position] == "G" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
 
   #players_by_id = Hash[players.map{|x| [x[:id], x]}
 
