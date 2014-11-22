@@ -10,7 +10,7 @@ task :create_rosters_nhl => [:environment] do
   the_matched_rosters = []
   the_players = Hash.new
   the_goalies = Hash.new
-  size = 30
+  size = 15
 
 
   #build the file name dynamically
