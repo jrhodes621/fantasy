@@ -13,13 +13,13 @@ task :create_rosters_nba => [:environment] do
 
 
   #build the file name dynamically
-  file = "db/csv/nov17_nba.csv"
+  file = "db/csv/nov19_nba.csv"
   id_position = 0 #12
   name_position = 2 #1
   position_position = 1 # 0
   team_position = 4 #3
   salary_position = 3 #2
-  points_position = 5 #6
+  points_position = 7 #6
 
   players = []
   CSV.foreach(file, :headers => true) do |row|
@@ -58,19 +58,50 @@ task :create_rosters_nba => [:environment] do
   #all defencement after 10
 
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 3, 1, 2, 1, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 3, 1, 1, 2, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 3, 2, 1, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 3, 1, 2, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 3, 1, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 2, 2, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 1, 3, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 2, 1, 2)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 1, 2, 2)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 3, 1, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 2, 2, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 1, 3, 1)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 2, 1, 2)
+  puts the_rosters.count.to_s + " Rosters"
+  
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 1, 2, 2)
+  puts the_rosters.count.to_s + " Rosters"
+  
+
+  puts the_rosters.count.to_s + " Rosters"
+  #puts the_rosters.to_json
 
   unique_rosters = the_rosters.flatten
     .sort_by { |r| r[:points] }.reverse.take(200000)
@@ -144,6 +175,7 @@ task :create_rosters_nba => [:environment] do
   
   end
 
+  binding.pry
   puts selected_rosters.to_json
 
 end
@@ -206,7 +238,9 @@ def process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combo
 
     salary1 = product.map{|combo| combo.map { |x|  x[:salary].to_f}.reduce(:+) }.reduce(:+)
 
-    next if(salary1 > 50000 || salary1 < 48000)
+    next if(salary1 > 50000)
+
+    break if(salary1 < 45000)
 
     points1 = product.map{|combo| combo.map { |x|  x[:points].to_f}.reduce(:+) }.reduce(:+)
 
@@ -224,6 +258,8 @@ def process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combo
     roster[:player_matches] = 0
 
     rosters << roster
+
+    break if(rosters.count>1000)
 
   end
 

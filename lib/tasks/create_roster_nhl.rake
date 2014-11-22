@@ -9,17 +9,20 @@ task :create_rosters_nhl => [:environment] do
   the_rosters = []
   the_matched_rosters = []
   the_players = Hash.new
-  size = 5
+  the_goalies = Hash.new
+  size = 30
 
 
   #build the file name dynamically
-  file = "db/csv/nov16_nhl.csv"
+  file = "db/csv/nov22_nhl.csv"
   id_position = 0 #12
   name_position = 2 #1
   position_position = 1 # 0
   team_position = 4 #3
   salary_position = 3 #2
-  points_position = 5 #6
+  opponent_rank_position = 5
+  points_position = 6 #6
+  expected_points_position = 7
 
   players = []
   CSV.foreach(file, :headers => true) do |row|
@@ -30,18 +33,19 @@ task :create_rosters_nhl => [:environment] do
       :position => row[position_position],
       :team => row[team_position],
       :salary => row[salary_position],
-      :points => row[points_position]
+      :points => row[points_position],
+      :expected_points => row[expected_points_position],
+      :opponent_rank => row[opponent_rank_position]
     }
 
     players << player
 
   end
 
-  binding.pry
-  all_centers = players.select { |player| player[:position] == "C"}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_wingers = players.select { |player| player[:position] == "W"}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_defencemen = players.select { |player| player[:position] == "D"}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_goalies = players.select { |player| player[:position] == "G"}.sort_by { |v| v[:points] }.reverse
+  all_centers = players.select { |player| player[:position] == "C" && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse.take(30)
+  all_wingers = players.select { |player| (player[:position] == "RW" || player[:position] == "LW") && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse.take(30)
+  all_defencemen = players.select { |player| player[:position] == "D" && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse.take(30)
+  all_goalies = players.select { |player| player[:position] == "G" && player[:expected_points].to_f > 0}.sort_by { |v| v[:points] }.reverse
 
   #players_by_id = Hash[players.map{|x| [x[:id], x]}
 
@@ -88,7 +92,7 @@ task :create_rosters_nhl => [:environment] do
     end
   end 
 
-    for c in (0..all_centers.count).step(size)
+  for c in (0..all_centers.count).step(size)
     for w in (0..all_wingers.count).step(size)
       for d in (0..all_defencemen.count).step(size)
 
@@ -118,7 +122,7 @@ task :create_rosters_nhl => [:environment] do
     end
   end 
 
-    for c in (0..all_centers.count).step(size)
+  for c in (0..all_centers.count).step(size)
     for w in (0..all_wingers.count).step(size)
       for d in (0..all_defencemen.count).step(size)
 
@@ -148,12 +152,9 @@ task :create_rosters_nhl => [:environment] do
     end
   end 
 
-  unique_rosters = the_rosters.flatten
-    .sort_by { |r| r[:points] }.reverse.take(200000)
+  unique_rosters = the_rosters.flatten.take(200000)
+    .sort_by { |r| r[:expected_points] }.reverse
     .each { |roster| roster[:players].flatten! }
-    
-
-  puts "Pulled out unique rosters"
 
   selected_rosters = []
   selected_index = 0
@@ -191,23 +192,36 @@ task :create_rosters_nhl => [:environment] do
     if(rosters_matched == 0)
       selected_index += 1
       players_matched = 0
-    
+      goalies_matched = false
       unique_roster[:players].each  do |player|
-        if(the_players.include?(player[:id])  && player[:position] != "G")
-          if the_players[player[:id]] 
+        if(the_players.include?(player[:id]))
+          if the_players[player[:id]] > 4
             players_matched += 1
           end
         end
+        #if(the_goalies.include?(player[:id]))
+          #if the_goalies[player[:id]] > 2
+            #goalies_matched = true
+          #end
+        #end
       end
 
-      if(players_matched < 5)
+      if(players_matched < 5 && !goalies_matched)
         selected_rosters << unique_roster
 
         unique_roster[:players].each do |player|
-          if(the_players.include?(player[:id]))
-            the_players[player[:id]] = the_players[player[:id]] + 1
+          if(player[:position] == "G")
+            if(the_goalies.include?(player[:id]))
+              the_goalies[player[:id]] = the_goalies[player[:id]] + 1
+            else
+              the_goalies[player[:id]] = 1
+            end
           else
-            the_players[player[:id]] = 1
+            if(the_players.include?(player[:id]))
+              the_players[player[:id]] = the_players[player[:id]] + 1
+            else
+              the_players[player[:id]] = 1
+            end
           end
         end
 
@@ -221,8 +235,9 @@ task :create_rosters_nhl => [:environment] do
   
   end
 
-  binding.pry
-  puts selected_rosters.to_json
+  puts selected_rosters
+    .sort_by { |r| r[:opponent_rank] }.reverse
+    .to_json
 
 end
 
@@ -250,6 +265,8 @@ def process_rosters center_combos, winger_combos, defencemen_combos, goalies_com
     next if(salary1 > 50000 || salary1 < 48000)
 
     points1 = product.map{|combo| combo.map { |x|  x[:points].to_f}.reduce(:+) }.reduce(:+)
+    expected_points1 = product.map{|combo| combo.map { |x|  x[:expected_points].to_f}.reduce(:+) }.reduce(:+)
+    opponent_rank = product.map{|combo| combo.map { |x|  x[:opponent_rank].to_f}.reduce(:+) }.reduce(:+)
 
     #next if(points1 < min_points)
 
@@ -259,6 +276,8 @@ def process_rosters center_combos, winger_combos, defencemen_combos, goalies_com
       :players => product,
       :salary => salary1,
       :points => points1,
+      :expected_points => expected_points1,
+      :opponent_rank => opponent_rank
     }
     #roster[:checksum] = Digest::SHA1.hexdigest roster.to_s
     roster[:matches] = 0
