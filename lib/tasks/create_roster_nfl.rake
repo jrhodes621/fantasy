@@ -15,6 +15,7 @@ task :create_rosters_nfl => [:environment] do
   team_position = 3
   salary_position = 4
   points_position = 6
+  expected_points_position = 7
 
   players = []
   CSV.foreach(file, :headers => true) do |row|

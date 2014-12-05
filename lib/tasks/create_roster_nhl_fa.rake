@@ -3,7 +3,7 @@ require 'digest/sha1'
 
 
 desc "Create Rosters for NHL"
-task :create_rosters_nhl => [:environment] do
+task :create_rosters_nhl_fa => [:environment] do
 
   min_points = 0
   the_rosters = []
@@ -14,7 +14,7 @@ task :create_rosters_nhl => [:environment] do
 
 
   #build the file name dynamically
-  file = "db/csv/dec5_nhl.csv"
+  file = "db/csv/nov28_nhl_fa.csv"
   id_position = 0 #12
   name_position = 2 #1
   position_position = 1 # 0
@@ -43,7 +43,7 @@ task :create_rosters_nhl => [:environment] do
   end
 
   all_centers = players.select { |player| player[:position] == "C" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
-  all_wingers = players.select { |player| (player[:position] == "RW" || player[:position] == "LW") && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
+  all_wingers = players.select { |player| (player[:position] == "RW" || player[:position] == "LW" || player[:position] == "W") && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
   all_defencemen = players.select { |player| player[:position] == "D" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
   all_goalies = players.select { |player| player[:position] == "G" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
 
@@ -70,15 +70,15 @@ task :create_rosters_nhl => [:environment] do
   defencemen = all_defencemen
   goalies = all_goalies
 
-  center_combos = centers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 18000 }
+  center_combos = centers.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12000 }
     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
     .take(80)
-  winger_combos = wingers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 18000 }
+  winger_combos = wingers.combination(4).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  >24000 }
     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
     .take(80)
   defencemen_combos = defencemen.combination(2).to_a
-    .reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 15000 }
-    .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+    .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12000 }
+    .sort_by {|player| player.map { |x|  x[:expected_points].delete(',').to_f }.reduce(:+) }.reverse
     .take(80)
 
   goalies_combos = goalies.combination(1).to_a
@@ -95,6 +95,8 @@ task :create_rosters_nhl => [:environment] do
     the_rosters << selected_rosters
   end
 
+
+
   puts "2"
 
   centers = all_centers
@@ -102,13 +104,13 @@ task :create_rosters_nhl => [:environment] do
   defencemen = all_defencemen
   goalies = all_goalies
 
-  center_combos = centers.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12500 }
+  center_combos = centers.combination(1).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12000 }
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
- winger_combos = wingers.combination(4).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
+ winger_combos = wingers.combination(5).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 30000 }
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
- defencemen_combos = defencemen.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12500 }
+ defencemen_combos = defencemen.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12000 }
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
  goalies_combos = goalies.combination(1).to_a
@@ -131,13 +133,13 @@ task :create_rosters_nhl => [:environment] do
   defencemen = all_defencemen
   goalies = all_goalies
 
-  center_combos = centers.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12500 }
+  center_combos = centers.combination(1).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12000 }
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
- winger_combos = wingers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 15000 }
+ winger_combos = wingers.combination(4).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
- defencemen_combos = defencemen.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 15000 }
+ defencemen_combos = defencemen.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 12000 }
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
  goalies_combos = goalies.combination(1).to_a
@@ -197,18 +199,18 @@ task :create_rosters_nhl => [:environment] do
       goalies_matched = false
       unique_roster[:players].each  do |player|
         if(the_players.include?(player[:id]))
-          if the_players[player[:id]] > 2
+          if the_players[player[:id]] > 4
             players_matched += 1
           end
         end
         if(the_goalies.include?(player[:id]))
-          if the_goalies[player[:id]] > 2
+          if the_goalies[player[:id]] > 4
             goalies_matched = true
           end
         end
       end
 
-      if(players_matched < 3 && !goalies_matched)
+      if(players_matched < 5 && !goalies_matched)
         selected_rosters << unique_roster
 
         unique_roster[:players].each do |player|
@@ -242,7 +244,7 @@ task :create_rosters_nhl => [:environment] do
 
 end
 
-def process_rosters center_combos, winger_combos, defencemen_combos, goalies_combos,min_points
+def process_rosters_fa center_combos, winger_combos, defencemen_combos, goalies_combos,min_points
 
   #centers = centers.map{ |player| player[:id] }
   #wingers = wingers.map{ |player| player[:id] }
@@ -263,7 +265,7 @@ def process_rosters center_combos, winger_combos, defencemen_combos, goalies_com
 
     salary1 = product.map{|combo| combo.map { |x|  x[:salary].delete(',').to_f}.reduce(:+) }.reduce(:+)
 
-    next if(salary1 > 50000 || salary1 < 45000)
+    next if(salary1 > 45000 || salary1 < 38000)
 
     points1 = product.map{|combo| combo.map { |x|  x[:points].to_f}.reduce(:+) }.reduce(:+)
     expected_points1 = product.map{|combo| combo.map { |x|  x[:expected_points].to_f}.reduce(:+) }.reduce(:+)

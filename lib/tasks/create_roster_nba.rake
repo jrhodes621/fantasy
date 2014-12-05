@@ -19,7 +19,9 @@ task :create_rosters_nba => [:environment] do
   position_position = 1 # 0
   team_position = 4 #3
   salary_position = 3 #2
-  points_position = 7 #6
+  opponent_rank_position = 5
+  points_position = 6 #6
+  expected_points_position = 7
 
   players = []
   CSV.foreach(file, :headers => true) do |row|
@@ -30,18 +32,20 @@ task :create_rosters_nba => [:environment] do
       :position => row[position_position],
       :team => row[team_position],
       :salary => row[salary_position],
-      :points => row[points_position]
+      :points => row[points_position],
+      :expected_points => row[expected_points_position],
+      :opponent_rank => row[opponent_rank_position]
     }
 
     players << player
 
   end
 
-  all_point_guards = players.select { |player| player[:position] == "PG"}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_shooting_guards = players.select { |player| player[:position] == "SG"}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_small_forwards = players.select { |player| player[:position] == "SF"}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_power_forwards = players.select { |player| player[:position] == "PF"}.sort_by { |v| v[:points] }.reverse.take(30)
-  all_centers = players.select { |player| player[:position] == "C"}.sort_by { |v| v[:points] }.reverse.take(30)
+  all_point_guards = players.select { |player| player[:position] == "PG"}.sort_by { |v| v[:points] }.reverse.take(25)
+  all_shooting_guards = players.select { |player| player[:position] == "SG"}.sort_by { |v| v[:points] }.reverse.take(25)
+  all_small_forwards = players.select { |player| player[:position] == "SF"}.sort_by { |v| v[:points] }.reverse.take(25)
+  all_power_forwards = players.select { |player| player[:position] == "PF"}.sort_by { |v| v[:points] }.reverse.take(25)
+  all_centers = players.select { |player| player[:position] == "C"}.sort_by { |v| v[:points] }.reverse.take(25)
   #players_by_id = Hash[players.map{|x| [x[:id], x]}
 
   #hold centers
@@ -57,57 +61,488 @@ task :create_rosters_nba => [:environment] do
   #all centers drop 10
   #all defencement after 10
 
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 3, 1, 2, 1, 1)
+
+  pgs = all_point_guards
+  sgs = all_shooting_guards
+  sfs = all_small_forwards
+  pfs = all_power_forwards
+  centers = all_centers
+
+  selected_rosters = []
+  
+  pg_combos = pgs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 3, 1, 1, 2, 1)
+  
+    pg_combos = pgs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 24000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  20000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 3, 2, 1, 1)
+    pg_combos = pgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 24000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 20000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 3, 1, 2, 1)
+    pg_combos = pgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 15000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 20000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  20000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
+  puts the_rosters.count.to_s + " Rosters"
+    
+  pg_combos = pgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 20000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 24000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 3, 1, 1)
+  pg_combos = pgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 2, 2, 1)
-  puts the_rosters.count.to_s + " Rosters"
-  
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 1, 3, 1)
+  pg_combos = pgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  24000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 2, 1, 2)
+  
+  pg_combos = pgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
+  puts the_rosters.count.to_s + " Rosters"
+
+  pg_combos = pgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 2, 1, 1, 2, 2)
-  puts the_rosters.count.to_s + " Rosters"
-  
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 3, 1, 1)
+  pg_combos = pgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 24000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 2, 2, 1)
+  
+  pg_combos = pgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
   puts the_rosters.count.to_s + " Rosters"
   
   the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 1, 3, 1)
-  puts the_rosters.count.to_s + " Rosters"
   
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 2, 1, 2)
-  puts the_rosters.count.to_s + " Rosters"
-  
-  the_rosters << build_nba_rosters(all_point_guards, all_shooting_guards, all_small_forwards, all_power_forwards, all_centers, 1, 2, 1, 2, 2)
-  puts the_rosters.count.to_s + " Rosters"
-  
+  pg_combos = pgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(3).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  24000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
 
   puts the_rosters.count.to_s + " Rosters"
-  #puts the_rosters.to_json
+  
+  pg_combos = pgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
 
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
+  puts the_rosters.count.to_s + " Rosters"
+  
+  pg_combos = pgs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(1).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(2).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
+
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
+
+  puts the_rosters.count.to_s + " Rosters"
+  
   unique_rosters = the_rosters.flatten
     .sort_by { |r| r[:points] }.reverse.take(200000)
     .each { |roster| roster[:players].flatten! }
     
-
   puts "Pulled out unique rosters"
 
   selected_rosters = []
@@ -187,38 +622,42 @@ def build_nba_rosters all_point_guards, all_shooting_guards, all_small_forwards,
 
   puts num_of_pg.to_s + " " + num_of_pg.to_s + " " + num_of_sf.to_s  + " " + num_of_pf.to_s  + " " + num_of_center.to_s 
 
-  for pg in (0..all_point_guards.count).step(size)
-    for sg in (0..all_shooting_guards.count).step(size)
-      for sf in (0..all_small_forwards.count).step(size)  
-        for pf in (0..all_power_forwards.count).step(size)
-          for c in (0..all_centers.count).step(size)
-            
-            pgs = all_point_guards.drop(pg).take(size)
-            sgs = all_shooting_guards.drop(sg).take(size)
-            sfs = all_small_forwards.drop(sf).take(size)
-            pfs = all_power_forwards.drop(pf).take(size)
-            centers = all_centers.drop(c).take(size)
-            
-            pg_combos = pgs.combination(num_of_pg).to_a
-            sg_combos = sgs.combination(num_of_sg).to_a
-            sf_combos = sfs.combination(num_of_sf).to_a
-            pf_combos = pfs.combination(num_of_pf).to_a
-            center_combos = centers.combination(num_of_center).to_a
+  pgs = all_point_guards
+  sgs = all_shooting_guards
+  sfs = all_small_forwards
+  pfs = all_power_forwards
+  centers = all_centers
+  
+  pg_combos = pgs.combination(num_of_pg).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sg_combos = sgs.combination(num_of_sg).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  sf_combos = sfs.combination(num_of_sf).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  pf_combos = pfs.combination(num_of_pf).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  >  12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
+  center_combos = centers.combination(num_of_center).to_a
+        .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+        .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
+        .take(25)
 
-            selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
-     
-            if selected_rosters.count > 0
-              min_points = selected_rosters.last[:points].to_f
-            end
+  selected_rosters = process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combos, min_points
 
-            if selected_rosters.count > 0
-              the_rosters << selected_rosters
-            end
-          end
-        end
-      end
-    end
-  end 
+  if selected_rosters.count > 0
+    min_points = selected_rosters.last[:points].to_f
+  end
+
+  if selected_rosters.count > 0
+    the_rosters << selected_rosters
+  end
 
   return the_rosters
 end
@@ -240,7 +679,7 @@ def process_nba_rosters pg_combos, sg_combos, sf_combos, pf_combos, center_combo
 
     next if(salary1 > 50000)
 
-    break if(salary1 < 45000)
+    next if(salary1 < 48000)
 
     points1 = product.map{|combo| combo.map { |x|  x[:points].to_f}.reduce(:+) }.reduce(:+)
 
