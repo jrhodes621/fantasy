@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'csv_importer#index'
   post "/create_csv" => "csv_importer#create_csv"
 
+  resources :imports, controller: 'fantasy_csv_imports' 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

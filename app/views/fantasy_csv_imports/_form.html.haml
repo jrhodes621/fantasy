@@ -1,0 +1,11 @@
+= form_for(@fantasy_csv_import) do |f|
+  - if @fantasy_csv_import.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@fantasy_csv_import.errors.count, "error")
+        prohibited this fantasy_csv_import from being saved:
+      %ul
+        - @fantasy_csv_import.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit

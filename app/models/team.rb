@@ -1,5 +1,6 @@
-class Player
+class Team
   include Mongoid::Document
   field :name, type: String
-  embedded_in :team
+  
+  belongs_to :sport
 end

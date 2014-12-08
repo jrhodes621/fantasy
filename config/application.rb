@@ -31,5 +31,16 @@ module Fantasy
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.encoding = "utf-8"
+    config.filter_parameters += [:password]
+    config.time_zone = 'Eastern Time (US & Canada)'
+    config.active_support.escape_html_entities_in_json = true
+    config.assets.enabled = true
+    config.assets.version = '1.0'
+    config.assets.initialize_on_precompile = false
+    config.assets.paths << "#{Rails.root}/app/assets/data"
+    config.assets.paths << "#{Rails.root}/app/assets/js/*"
+    config.use_ssl = false
+
   end
 end

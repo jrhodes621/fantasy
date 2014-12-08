@@ -8,7 +8,7 @@ class CsvScraper
   end
 
   def output_file_name
-    DateTime.now.to_s + ".csv"
+    "db/csv/nhl/" + DateTime.now.to_s + ".csv"
   end
 
   def headers
@@ -68,6 +68,13 @@ homeXppg homeXor ppgXor]
         csv << row
       end
     end
+    binding.pry
+    FantasyCsvImport.create!({
+      :file_name => output_file_name,
+      :fantasy_site => "DraftKings"
+    })
+
+    #queue a job for rake task
   end
 
 end

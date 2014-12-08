@@ -5,19 +5,17 @@ source 'https://rubygems.org'
 gem 'rest_client'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
+gem 'haml-rails'
 gem "mongoid"
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
-
-# Use jquery as the JavaScript library
+gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier',     '>= 1.0.3'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'sass-rails', '>= 3.2'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem "bower-rails", "~> 0.5.0"
+gem 'therubyracer'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -40,7 +38,7 @@ gem 'parallel'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-group :development do
+group :development do 
   gem 'guard-rspec'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'terminal-notifier'
@@ -52,4 +50,5 @@ group :development do
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'whenever', :require => false
+  gem "erb2haml"
 end
