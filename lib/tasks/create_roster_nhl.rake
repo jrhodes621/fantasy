@@ -12,7 +12,7 @@ task :create_rosters_nhl => [:environment] do
   the_goalies = Hash.new
   the_defencemen = Hash.new
   size = 30
-  depth = 80
+  depth = 50
 
   #build the file name dynamically
   path = Rails.root + "db/csv/nhl/"
