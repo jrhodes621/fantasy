@@ -96,7 +96,6 @@ task :create_rosters_nhl => [:environment] do
 
   goalies_combos = goalies.combination(1).to_a
 
-  binding.pry
   selected_rosters = process_rosters center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
 
   if selected_rosters.count > 0
@@ -172,7 +171,6 @@ task :create_rosters_nhl => [:environment] do
     .each { |roster| roster[:players].flatten! }
     .take(200000)
 
-    binding.pry
   selected_rosters = []
   selected_index = 0
 
