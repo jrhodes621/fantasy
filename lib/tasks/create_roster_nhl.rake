@@ -12,10 +12,11 @@ task :create_rosters_nhl => [:environment] do
   the_goalies = Hash.new
   the_defencemen = Hash.new
   size = 30
-
+  depth = 20
 
   #build the file name dynamically
-  file = "2014-12-07T23:32:15-05:00.csv"
+  path = Rails.root + "db/csv/nhl/"
+  file = "2014-12-09T23:02:38-05:00.csv"
   id_position = 0 #12
   name_position = 2 #1
   position_position = 1 # 0
@@ -25,29 +26,40 @@ task :create_rosters_nhl => [:environment] do
   points_position = 6 #6
   expected_points_position = 8
 
+  starting_goalies = ["James Reimer","Jimmy Howard","Ben Scrivens","Frederik Andersen"]
   players = []
-  CSV.foreach(file, :headers => true) do |row|
+  injured_players = ["Justin Abdelkader","Leo Komarov","Boyd Gordon","Sheldon Souray"]
 
-    player = {
-      :id => row[id_position],
-      :name => row[name_position],
-      :position => row[position_position],
-      :team => row[team_position],
-      :salary => row[salary_position],
-      :points => row[points_position],
-      :expected_points => row[expected_points_position],
-      :opponent_rank => row[opponent_rank_position]
-    }
+  fantasy_csv_import = FantasyCsvImport.last
 
-    players << player
+  fantasy_csv_import.players_array.each do |player|
+    fantasy_player = FantasyPlayer.where(:id => player[:id]).first
 
+    if(!fantasy_player)
+      Player.create!({
+        :name => player[:name],
+        :position => player[:position]
+      }).tap do |p|
+        p.fantasy_player.create!({
+            :fantasy_site => "Draft Kings",
+            :external_id => player[:id]
+        })
+      end
+    end
   end
 
-  all_centers = players.select { |player| player[:position] == "C" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
-  all_wingers = players.select { |player| (player[:position] == "RW" || player[:position] == "LW") && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
-  all_defencemen = players.select { |player| player[:position] == "D" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
-  all_goalies = players.select { |player| player[:position] == "G" && player[:expected_points].to_f > 2}.sort_by { |v| v[:points] }.reverse
-
+  all_centers = fantasy_csv_import.players_array.select { |player| player[:position] == "C" && player[:projected].to_f > 2 && player[:salary].to_f > 2500}.sort_by { |v| v[:projected] }
+    .reject { |player| injured_players.include?(player[:name]) }
+    .reverse
+  all_wingers = fantasy_csv_import.players_array.select { |player| ((player[:position] == "RW" || player[:position] == "LW")) && player[:projected].to_f > 2 && player[:salary].to_f > 2500}.sort_by { |v| v[:projected] }
+    .reject { |player| injured_players.include?(player[:name]) }
+    .reverse
+  all_defencemen = fantasy_csv_import.players_array.select { |player| player[:position] == "D" && player[:projected].to_f > 2 && player[:salary].to_f > 2500}.sort_by { |v| v[:projected] }
+    .reject { |player| injured_players.include?(player[:name]) }
+    .reverse
+  all_goalies = fantasy_csv_import.players_array.select { |player| player[:position] == "G" && starting_goalies.include?(player[:name])  && player[:projected].to_f > 2 && player[:salary].to_f > 2500}.sort_by { |v| v[:projected] }
+    .reject { |player| injured_players.include?(player[:name]) }
+    .reverse
   #players_by_id = Hash[players.map{|x| [x[:id], x]}
 
   #hold centers
@@ -71,19 +83,19 @@ task :create_rosters_nhl => [:environment] do
   defencemen = all_defencemen
   goalies = all_goalies
 
-  center_combos = centers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-    .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-    .take(20)
-  winger_combos = wingers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-    .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-    .take(20)
+  center_combos = centers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+    .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+    .take(depth)
+  winger_combos = wingers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+    .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+    .take(depth)
   defencemen_combos = defencemen.combination(2).to_a
-    .reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-    .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-    .take(20)
+    .reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+    .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+    .take(depth)
 
   goalies_combos = goalies.combination(1).to_a
-  
+
   binding.pry
   selected_rosters = process_rosters center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
 
@@ -103,17 +115,17 @@ task :create_rosters_nhl => [:environment] do
   defencemen = all_defencemen
   goalies = all_goalies
 
-  center_combos = centers.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-     .take(20)
- winger_combos = wingers.combination(4).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 30000 }
-     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-     .take(20)
- defencemen_combos = defencemen.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-     .take(20)
+  center_combos = centers.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 15000 }
+     .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+     .take(depth)
+ winger_combos = wingers.combination(4).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 24000 }
+     .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+     .take(depth)
+ defencemen_combos = defencemen.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 12500 }
+     .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+     .take(depth)
  goalies_combos = goalies.combination(1).to_a
-  
+
   selected_rosters = process_rosters center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
 
   if selected_rosters.count > 0
@@ -132,17 +144,17 @@ task :create_rosters_nhl => [:environment] do
   defencemen = all_defencemen
   goalies = all_goalies
 
-  center_combos = centers.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-     .take(20)
- winger_combos = wingers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-     .take(20)
- defencemen_combos = defencemen.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].delete(',').to_f}.reduce(:+)  > 24000 }
-     .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
-     .take(20)
+  center_combos = centers.combination(2).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 15000 }
+     .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+     .take(depth)
+ winger_combos = wingers.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+     .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+     .take(depth)
+ defencemen_combos = defencemen.combination(3).to_a.reject{ |player| player.map { |x|  x[:salary].to_f}.reduce(:+)  > 18000 }
+     .sort_by {|player| player.map { |x|  x[:projected].to_f }.reduce(:+) }.reverse
+     .take(depth)
  goalies_combos = goalies.combination(1).to_a
-  
+
   selected_rosters = process_rosters center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
 
   if selected_rosters.count > 0
@@ -158,6 +170,7 @@ task :create_rosters_nhl => [:environment] do
   unique_rosters = the_rosters.flatten
     .sort_by { |r| r[:expected_points] }.reverse
     .each { |roster| roster[:players].flatten! }
+    .take(200000)
 
     binding.pry
   selected_rosters = []
@@ -181,7 +194,7 @@ task :create_rosters_nhl => [:environment] do
     selected_rosters.each do |selected_roster|
       matched = 0
       unique_roster[:players].each do |player|
-        selected_roster[:players].each do |selected_player| 
+        selected_roster[:players].each do |selected_player|
           if(selected_player[:id] == player[:id])
             matched += 1
           end
@@ -244,11 +257,11 @@ task :create_rosters_nhl => [:environment] do
 
       else
         the_matched_rosters << unique_roster
-      end 
+      end
     else
       the_matched_rosters << unique_roster
-    end 
-  
+    end
+
   end
 
   puts selected_rosters.count.to_s + " rosters found"
@@ -256,10 +269,6 @@ task :create_rosters_nhl => [:environment] do
   puts selected_rosters
     .to_json
 
-  fantasy_csv_import = FantasyCsvImport.create!({
-    :file_name => file,
-    :fantasy_site => "Draft Kings"
-  })
   selected_rosters.each do |selected_roster|
 
     roster = fantasy_csv_import.rosters.create!({
@@ -268,15 +277,15 @@ task :create_rosters_nhl => [:environment] do
       })
 
     selected_roster[:players].each do |player|
-      roster.roster_players.create!({
-        :name => player[:name],
-        :position => player[:position],
-        :team => player[:team],
-        :salary => player[:salary],
-        :average_points => player[:points],
-        :projected_points => player[:expected_points],
-        :opponent_rank => player[:opponent_rank]
-      })
+
+      fantasy_player = FantasyPlayer.where("external_id" => player[:id]).first
+      fantasy_player.salary = player[:salary]
+      fantasy_player.average_points = player[:ppg]
+      fantasy_player.projected_points = player[:projected]
+      fantasy_player.opponent_rank = player[:or]
+      fantasy_player.save!
+
+      roster.players << fantasy_player.player
 
     end
 
@@ -293,7 +302,7 @@ def process_rosters center_combos, winger_combos, defencemen_combos, goalies_com
 
   checksum_array = []
   rosters = []
-  
+
   products = CartesianProduct.new(center_combos, winger_combos, defencemen_combos, goalies_combos)
 
   products.each do |product|
@@ -302,12 +311,12 @@ def process_rosters center_combos, winger_combos, defencemen_combos, goalies_com
 
     #next if checksum_array.include?checksum
 
-    salary1 = product.map{|combo| combo.map { |x|  x[:salary].delete(',').to_f}.reduce(:+) }.reduce(:+)
+    salary1 = product.map{|combo| combo.map { |x|  x[:salary].to_f}.reduce(:+) }.reduce(:+)
 
     next if(salary1 > 50000 || salary1 < 45000)
 
     points1 = product.map{|combo| combo.map { |x|  x[:points].to_f}.reduce(:+) }.reduce(:+)
-    expected_points1 = product.map{|combo| combo.map { |x|  x[:expected_points].to_f}.reduce(:+) }.reduce(:+)
+    expected_points1 = product.map{|combo| combo.map { |x|  x[:projected].to_f}.reduce(:+) }.reduce(:+)
     opponent_rank = product.map{|combo| combo.map { |x|  x[:opponent_rank].to_f}.reduce(:+) }.reduce(:+)
 
     #next if(points1 < min_points)

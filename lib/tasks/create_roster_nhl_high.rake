@@ -3,7 +3,7 @@ require 'digest/sha1'
 
 
 desc "Create Rosters for NHL"
-task :create_rosters_nhl => [:environment] do
+task :create_rosters_nhl_high => [:environment] do
 
   min_points = 0
   the_rosters = []
@@ -82,7 +82,7 @@ task :create_rosters_nhl => [:environment] do
     .take(80)
 
   goalies_combos = goalies.combination(1).to_a
-  
+
   binding.pry
   selected_rosters = process_rosters_high center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
 
@@ -112,7 +112,7 @@ task :create_rosters_nhl => [:environment] do
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
  goalies_combos = goalies.combination(1).to_a
-  
+
   selected_rosters = process_rosters_high center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
 
   if selected_rosters.count > 0
@@ -141,7 +141,7 @@ task :create_rosters_nhl => [:environment] do
      .sort_by {|player| player.map { |x|  x[:expected_points].to_f }.reduce(:+) }.reverse
      .take(80)
  goalies_combos = goalies.combination(1).to_a
-  
+
   selected_rosters = process_rosters_high center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
 
   if selected_rosters.count > 0
@@ -178,7 +178,7 @@ task :create_rosters_nhl => [:environment] do
     selected_rosters.each do |selected_roster|
       matched = 0
       unique_roster[:players].each do |player|
-        selected_roster[:players].each do |selected_player| 
+        selected_roster[:players].each do |selected_player|
           if(selected_player[:id] == player[:id])
             matched += 1
           end
@@ -230,11 +230,11 @@ task :create_rosters_nhl => [:environment] do
         puts selected_index
       else
         the_matched_rosters << unique_roster
-      end 
+      end
     else
       the_matched_rosters << unique_roster
-    end 
-  
+    end
+
   end
 
   puts selected_rosters
@@ -252,7 +252,7 @@ def process_rosters_high center_combos, winger_combos, defencemen_combos, goalie
 
   checksum_array = []
   rosters = []
-  
+
   products = CartesianProduct.new(center_combos, winger_combos, defencemen_combos, goalies_combos)
 
   products.each do |product|

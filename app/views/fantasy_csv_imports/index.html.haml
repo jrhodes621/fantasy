@@ -8,6 +8,8 @@
         Fantasy Site
       %th
         File Name
+      %td
+        Created At
       %th
         Rosters
   %tbody
@@ -19,6 +21,8 @@
           = fantasy_csv_import.fantasy_site
         %td
           = fantasy_csv_import.file_name
+        %td
+          = fantasy_csv_import.created_at
         %td
           = link_to 'Rosters', import_path(fantasy_csv_import)
 %br/

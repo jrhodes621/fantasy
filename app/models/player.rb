@@ -1,5 +1,12 @@
 class Player
   include Mongoid::Document
+  include Mongoid::Timestamps
+
   field :name, type: String
-  embedded_in :team
+  field :position, type: String
+  field :injured, type: Boolean
+
+  has_many :fantasy_player
+  has_many :rosters
+  
 end

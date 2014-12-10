@@ -4,7 +4,7 @@ class FantasyCsvImportsController < ApplicationController
   # GET /fantasy_csv_imports
   # GET /fantasy_csv_imports.json
   def index
-    @fantasy_csv_imports = FantasyCsvImport.all
+    @fantasy_csv_imports = FantasyCsvImport.order_by(:_id => 'desc')
   end
 
   # GET /fantasy_csv_imports/1

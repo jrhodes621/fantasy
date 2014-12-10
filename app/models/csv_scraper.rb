@@ -51,27 +51,64 @@ homeXppg homeXor ppgXor]
       homeXor = home * opponent_rank
       ppgXor = ppg * opponent_rank
 
-      projected = nil
+      or_multiplier = 1
+      case opponent_rank
+      when 25..35
+        or_multiplier = 1.1
+      when 20..25
+        or_multiplier = 1.05
+      when 10..20
+        or_multipler = 1
+      when 0..10
+        or_multiplier =0.8
+      end
+      projected = or_multiplier*ppg
+
+      if(ppg >4.0)
+        projected += ppg*0.2
+      end
+      if(home)
+        projected += ppg*0.2
+      end
+      #last 10 could go here
+      #if skater playing backup
+
       top10= nil
       actual = nil
 
-      [projected, top10, actual,
-       name, id, position, salary, team, opponent_rank, ppg, home, goalie, center, defense, wing,
-       homeXgoalie, homeXcenter, homeXdefense, homeXwing,
-       ppgXgoalie, ppgXcenter, ppgXdefense, ppgXwing,
-       homeXppg, homeXor, ppgXor]
+      {
+        :id => id,
+        :name => name,
+        :position => position,
+        :salary => salary,
+        :team => team,
+        :ppg => ppg,
+        :opponent_rank => opponent_rank,
+        :projected => projected,
+        :top10 => top10,
+        :home => home,
+        :goalie => goalie,
+        :center => center,
+        :defence => defense,
+        :wing => wing,
+        :homeXgoalie => homeXgoalie,
+        :homeXcenter => homeXcenter,
+        :homeXdefense => homeXdefense,
+        :homeXwing => homeXwing,
+        :ppgXgoalie => ppgXgoalie,
+        :ppgXcenter => ppgXcenter,
+        :ppgXdefense => ppgXdefense,
+        :ppgXwing => ppgXwing,
+        :homeXppg => homeXppg,
+        :homeXor => homeXor,
+        :ppgXof => ppgXor
+      }
     end
 
-    CSV.open(output_file_name, "wb") do |csv|
-      csv << headers
-      parray.each do |row|
-        csv << row
-      end
-    end
-    binding.pry
-    FantasyCsvImport.create!({
+    fantasy_csv_import = FantasyCsvImport.create!({
       :file_name => output_file_name,
-      :fantasy_site => "DraftKings"
+      :fantasy_site => "DraftKings",
+      :players_array => parray
     })
 
     #queue a job for rake task

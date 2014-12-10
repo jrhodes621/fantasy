@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fantasy_site: MyString
+  external_id: MyString
+  player_id: 
+
+two:
+  fantasy_site: MyString
+  external_id: MyString
+  player_id: 

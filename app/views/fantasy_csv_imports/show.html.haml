@@ -19,18 +19,26 @@
               %th
                 Actual
           %tbody
-            - roster.roster_players.each do |player|
+            - roster.players.each do |player|
               %tr
                 %td
                   = player.position
                 %td
                   = player.name
                 %td
-                  = player.salary
+                  = player.fantasy_player.first.salary
                 %td
-                  = player.projected_points
+                  = player.fantasy_player.first.projected_points.round(2)
                 %td
-                  = player.actual_points
+                  = player.fantasy_player.first.actual_points
+        .total-salary
+          Total Salary:
+          %span
+            = roster.players.map{ |x|  x.fantasy_player.map { |fp| fp[:salary].to_f }.reduce(:+) }.reduce(:+)
+        .total-points
+          Total Projected:
+          %span
+            = roster.players.map{ |x|  x.fantasy_player.map { |fp| fp[:projected_points].to_f }.reduce(:+) }.reduce(:+)
 = link_to 'Edit', edit_import_path(@fantasy_csv_import)
 |
 \#{link_to 'Back', imports_path}

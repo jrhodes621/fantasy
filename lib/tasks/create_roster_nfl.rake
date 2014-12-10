@@ -32,7 +32,7 @@ task :create_rosters_nfl => [:environment] do
     players << player
 
   end
-  
+
   all_centers = players.select { |player| player[:position] == "QB"}.sort_by { |v| v[:points] }.reverse.take(30)
   all_wingers = players.select { |player| player[:position] == "RB"}.sort_by { |v| v[:points] }.reverse.take(30)
   all_defencemen = players.select { |player| player[:position] == "WR"}.sort_by { |v| v[:points] }.reverse.take(30)
@@ -69,9 +69,9 @@ task :create_rosters_nfl => [:environment] do
           winger_combos = wingers.combination(3).to_a
           defencemen_combos = defencemen.combination(3).to_a
           goalies_combos = goalies.combination(1).to_a
-          
+
           selected_rosters = process_nfl_rosters center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
-   
+
           if selected_rosters.count > 0
             min_points = selected_rosters.last[:points].to_f
           end
@@ -83,7 +83,7 @@ task :create_rosters_nfl => [:environment] do
         end
       end
     end
-  end 
+  end
 
 for c in (0..all_centers.count).step(size)
     for w in (0..all_wingers.count).step(size)
@@ -101,9 +101,9 @@ for c in (0..all_centers.count).step(size)
           winger_combos = wingers.combination(2).to_a
           defencemen_combos = defencemen.combination(4).to_a
           goalies_combos = goalies.combination(1).to_a
-          
+
          selected_rosters = process_nfl_rosters center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
-   
+
           if selected_rosters.count > 0
             min_points = selected_rosters.last[:points].to_f
           end
@@ -115,8 +115,8 @@ for c in (0..all_centers.count).step(size)
         end
       end
     end
-  end 
-    
+  end
+
   for c in (0..all_centers.count).step(size)
     for w in (0..all_wingers.count).step(size)
       for d in (0..all_defencemen.count).step(size)
@@ -133,9 +133,9 @@ for c in (0..all_centers.count).step(size)
           winger_combos = wingers.combination(2).to_a
           defencemen_combos = defencemen.combination(3).to_a
           goalies_combos = goalies.combination(2).to_a
-          
+
           selected_rosters = process_nfl_rosters center_combos, winger_combos, defencemen_combos, goalies_combos, min_points
-   
+
           if selected_rosters.count > 0
             min_points = selected_rosters.last[:points].to_f
           end
@@ -147,12 +147,12 @@ for c in (0..all_centers.count).step(size)
         end
       end
     end
-  end 
+  end
 
   unique_rosters = the_rosters.flatten
     .sort_by { |r| r[:points] }.reverse.take(5000)
     .each { |roster| roster[:players].flatten! }
-    
+
 
   puts "Pulled out unique rosters"
 
@@ -167,7 +167,7 @@ for c in (0..all_centers.count).step(size)
     selected_rosters.each do |selected_roster|
       matched = 0
       unique_roster[:players].each do |player|
-        selected_roster[:players].each do |selected_player| 
+        selected_roster[:players].each do |selected_player|
           if(selected_player[:id] == player[:id])
             matched += 1
           end
@@ -185,8 +185,8 @@ for c in (0..all_centers.count).step(size)
       selected_rosters << unique_roster
 
       puts selected_index
-    end 
-  
+    end
+
   end
 
   puts selected_rosters.to_json
