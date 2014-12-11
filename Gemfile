@@ -38,7 +38,7 @@ gem 'parallel'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-group :development do 
+group :development do
   gem 'guard-rspec'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'terminal-notifier'
@@ -51,4 +51,8 @@ group :development do
   gem 'pry-remote'
   gem 'whenever', :require => false
   gem "erb2haml"
+end
+
+group :production do
+  gem 'rails_12factor'
 end
