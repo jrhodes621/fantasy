@@ -26,9 +26,54 @@ task :create_rosters_nhl => [:environment] do
   points_position = 6 #6
   expected_points_position = 8
 
-  starting_goalies = ["James Reimer","Jimmy Howard","Ben Scrivens","Frederik Andersen"]
+  starting_goalies = ["Scott Darling",
+    "Tuuka Rask",
+    "Karri Ramo",
+    "Jhonas Enroth",
+    "Cory Schneider",
+    "Ray Emery",
+    "Sergei Bobrovsky",
+    "Braden Holtby",
+    "Cam Ward",
+    "Cam Ward",
+    "Jonathan Quick",
+    "Craig Anderson",
+    "Jaroslav Halak",
+    "Jake Allen",
+    "Ondrej Pavelec",
+    "Calvin Pickard",
+    "Pekka Rinne",
+    "Mike Smith",
+    "Darcy Kuemper",
+    "Alex Stalock"
+  ]
+
   players = []
-  injured_players = ["Justin Abdelkader","Leo Komarov","Boyd Gordon","Sheldon Souray"]
+  injured_players = ["Justin Abdelkader",
+    "Leo Komarov",
+    "Boyd Gordon",
+    "Sheldon Souray",
+    "Derek Roy",
+    "Paul Gaustad",
+    "John Mitchell",
+    "Andrej Nestrasil",
+    "Clarke MacArthur",
+    "Marco Scandella",
+    "Alexander Semin",
+    "Dainius Zubrus",
+    "Milan Michalek",
+    "Marc-Edouard Vlasic",
+    "Matthew Nieto",
+    "Simon Gagne",
+    "Marc Methot",
+    "Andrej Meszaros",
+    "Kieth Ballard",
+    "Mike Brown",
+    "Tyson Scrachan",
+    "Carl Gunnarsson",
+    "Kyle Clifford",
+    "Taylor Beck"
+  ]
 
   fantasy_csv_import = FantasyCsvImport.last
 
